@@ -1,0 +1,251 @@
+header{
+    display: flex;
+    justify-content:space-around;
+    flex-direction: row;
+}
+
+.header-logo{
+    
+}
+
+.header-logo a{
+
+}
+
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-menu nav ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.header-menu nav ul li a{
+
+}
+
+.header-checkout{
+    display: flex;
+}
+
+.header-checkout a{
+
+}
+
+main{
+    
+}
+
+.slider{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider-title{
+    text-align: center;
+}
+
+.slider-description{
+    text-align: center;
+}
+
+.slider-button{
+
+}
+
+.slider-image{
+    
+}
+
+.slider-image a{
+
+}
+
+.featured{
+  
+}
+
+.featured-title{
+
+}
+
+.featured-description{
+
+}
+
+.featured-items{
+
+}
+
+.three-columns{
+    display: flex;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-item{
+    display: flex;
+}
+
+.featured-item-image{
+
+}
+
+.featured-item-image a{
+
+}
+
+.featured-item-title{
+
+}
+
+.featured-item-description{
+
+}
+
+.details{
+    display: flex;
+}
+
+.details-item{
+    display: flex;
+}
+
+.detail-items-image{
+
+}
+
+.detail-items-image svg{
+
+}
+
+.detail-items-text{
+    display: flex;
+}
+
+.detail-items-text-title{
+
+}
+
+.detail-items-text-description{
+
+}
+
+.team{
+    display: flex;
+}
+
+.team-title{
+
+}
+
+.team-description{
+
+}
+
+.four-columns{
+    display: flex;
+}
+
+.team-member{
+    display: flex;
+}
+
+.team-member-image{
+
+}
+
+.team-member-image picture a{
+
+}
+
+.team-member-title{
+
+}
+
+.team-member-description{
+
+}
+
+.team-member-socials{
+
+}
+
+.nav-icon{
+
+}
+
+.contact{
+    display: flex;
+}
+
+.contact-map{
+
+}
+
+.contact-card{
+    display: flex;
+}
+
+.contact-card-front{
+
+}
+
+.contact-card-title{
+
+}
+
+.contact-card-details{
+    display: flex;
+}
+
+.contact-card-details-item{
+
+}
+
+.contact-card-details-item-image{
+
+}
+
+.contact-card-details-item-image svg{
+
+}
+
+.contact-card-details-item-description{
+
+}
+
+.contact-card-checkout{
+
+}
+
+footer{
+    display: flex;
+}
+
+.footer-socials{
+    display: flex;
+}
+
+.footer-socials nav ul li a{
+
+}
+
+.footer-menu{
+    display: flex;
+}
+
+.footer-menu nav ul li a{
+
+}
+
+.footer-text{
+
+}

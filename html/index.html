@@ -3,91 +3,342 @@
 <!-- El atributo lang indica al navegador el idioma del documento. -->
 <html lang="es">
     <!-- Dentro de la etiqueta head se encuentra toda la información sobre la página que interpretará el navegador pero no aparecerá en la pantalla. -->
-<head>
-    <!-- El atributo charset indica los carácteres usados  para representar los carácteres de un idioma. -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Viewport permite a la página ser responsive, es decir, adaptarse a la pantalla de cualquier dispositivo. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="">
-    <!-- El atributo title es el que aparece en la barra de buscador y que además es el centro de la URL. -->
-    <title>Tienda online 2.1</title>
-    <meta name="description" content="descripción de la web, se recomienda 90 caracteres">
-    <meta name="keywords"    content="palabras clave, separadas, por comas">
+    <head>
+        <!-- El atributo charset indica los carácteres usados  para representar los carácteres de un idioma. -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Viewport permite a la página ser responsive, es decir, adaptarse a la pantalla de cualquier dispositivo. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="">
+        <!-- El atributo title es el que aparece en la barra de buscador y que además es el centro de la URL. -->
+        <title>Tienda online 2.1</title>
+        <meta name="description" content="descripción de la web, se recomienda 90 caracteres">
+        <meta name="keywords"    content="palabras clave, separadas, por comas">
 
-    <link href="css/app.css" rel="stylesheet">
-</head>
+        <link href="../css/app.css" rel="stylesheet">
+    </head>
 <!-- Dentro de la etiqueta body se encuentra la información sobre la página que interpretará el navegador y que aparecerá en la pantalla. -->
     <body>
-        <!-- Este es un resumen de los principales elementos html -->
 
         <!-- Cabecera -->
         <header>
-            <h1>Título</h1>
-            <p>Subtítulo</p>
+            <div class="header-logo">
+                <picture>
+                    <a href="#"><img src="../images/Logo.png" alt="Chromatic, vive tus colores."></a>
+                </picture>
+            </div>
+            <div class="header-menu">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Objetivos</a>
+                        </li>
+                        <li>
+                            <a href="#">Información</a>
+                        </li>
+                        <li>
+                            <a href="#">Nuestro equipo</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>   
+            </div>
+            <div class="header-checkout">
+                <a href="#">Inscribirme</a>
+            </div>
         </header>
-
-        <!-- Menú -->
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">Enlace 1</a>
-                </li>
-                <li>
-                    <a href="#">Enlace 2</a>
-                </li>
-                <li>
-                    <a href="#">Enlace 3</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Contenido -->
         <main>
-            <div class="contact-form">
-                <form>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Introduce tu nombre">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Introduce tu email">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea name="mensaje" id="mensaje" placeholder="Introduce tu mensaje"></textarea>
-                    <input type="submit" value="Enviar">
-                </form>
+            <div class="slider">
+                <div class="slider-title"><h1>Iniciate en la aerografía.</h1></div>
+                <div class="slider-description"><p>Aprende a usar esta increíble herramienta de trabajo artístico o expande tus conocimientos en la materia. Sea cual sea tu caso en este curso obtendrás competencias útiles para desarrollarte en el mundo del arte.¿A qué esperas?</p></div>
+                <div class="slider-button"></div>
+                <div class="slider-image">
+                    <picture>
+                        <a href="#"><img src="../images/airbrush.jpg" alt="Mano sosteniendo aerógrafo."></a>
+                    </picture>
+                </div>
             </div>
-            <div class="contact-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Mensaje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Nombre 1</td>
-                            <td>Email 1</td>
-                            <td>Mensaje 1</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre 2</td>
-                            <td>Email 2</td>
-                            <td>Mensaje 2</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre 3</td>
-                            <td>Email 3</td>
-                            <td>Mensaje 3</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="featured">
+                <div class="featured-title"><h2>Objetivos del curso:</h2></div>
+                <div class="featured-description"><p>Durante la duración de este curso como meta tendrás los siguientes objetivos. Todos ellos son clave para el correcto uso del aerógrafo y además son esenciales para el desarrollo y la evolución de cualquier aprendizaje futuro.</p></div>
+                <div class="featured-items">
+                    <div class="three-columns">
+                        <div class="column">
+                            <div class="featured-item">
+                                <div class="featured-item-image">
+                                    <picture>
+                                        <a href="#"><img src="../images/airbrush-cleaning.jpg" alt="Mantenimiento del aerógrafo."></a>
+                                    </picture>
+                                </div>
+                                <div class="featured-item-title"><h3>Mantenimiento y uso adecuado.</h3></div>
+                                <div class="featured-item-description"><p>Aprenderás a diferenciar y cuidar los componentes del aerógrafo, a la vez que alargarás su vida útil mediante su adecuado mantenimiento adecuado con los productos propios.</p></div>
+                            </div>                    
+                        </div>
+                        <div class="column">
+                            <div class="featured-item">
+                                <div class="featured-item-image">
+                                    <picture>
+                                        <a href="#"><img src="../images/Color Theory-min.webp" alt="Rueda de la teoría del color."></a>
+                                    </picture>
+                                </div>
+                                <div class="featured-item-title"><h3>Teoría del color, iluminación y sombreado.</h3></div>
+                                <div class="featured-item-description"><p>Ampliarás tus conocimientos sobre la gama cromática y como usar combinaciones llamativas a la vez que enriquecedoras para tus composiciones artísticas.</p></div>
+                            </div>                    
+                        </div>
+                        <div class="column">
+                            <div class="featured-item">
+                                <div class="featured-item-image">
+                                    <picture>
+                                        <a href="#"><img src="../images/Osl-example.jpg" alt="Ejemplo de OSL"></a>
+                                    </picture>
+                                </div>
+                                <div class="featured-item-title"><h3>OSL (Object Source Lighting)</h3></div>
+                                <div class="featured-item-description"><p>Esta técnica de iluminación avanzada te permitirá crear el efecto de reflejo natural que crean las luces en superfícies,pero en este caso en tus obras.</p></div>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
+            <div class="details">
+                <div class="three-columns">
+                    <div class="column">
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>tools</title><path d="M21.71 20.29L20.29 21.71A1 1 0 0 1 18.88 21.71L7 9.85A3.81 3.81 0 0 1 6 10A4 4 0 0 1 2.22 4.7L4.76 7.24L5.29 6.71L6.71 5.29L7.24 4.76L4.7 2.22A4 4 0 0 1 10 6A3.81 3.81 0 0 1 9.85 7L21.71 18.88A1 1 0 0 1 21.71 20.29M2.29 18.88A1 1 0 0 0 2.29 20.29L3.71 21.71A1 1 0 0 0 5.12 21.71L10.59 16.25L7.76 13.42M20 2L16 4V6L13.83 8.17L15.83 10.17L18 8H20L22 4Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Herramienta:</h3></div>
+                                <div class="detail-items-text-description"><h4>Aerógrafo Harder and Steinbeck Evolution.</h4></div>
+                            </div>
+                        </div>
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-range</title><path d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Fecha:</h3></div>
+                                <div class="detail-items-text-description"><h4>El curso tendrá lugar el 27 y 28 de enero de 2023.</h4></div>
+                            </div>
+                        </div>
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Dirección:</h3></div>
+                                <div class="detail-items-text-description"><h4>La sede de ChromatIC será el lugar en el que se llevará a cabo el curso, Calle Falsa 123.</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="details-image">
+                            <picture>
+                                <a href="#"><img src="../images/Evolution-airbrush-black.jpg" alt="Aerógrafo Harder and Steinbeck Evolution."></a>
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>hours-24</title><path d="M13 2.05V4.07C16.95 4.56 20 7.92 20 12C20 15.21 18.08 18 15.28 19.28L13 17V22H18L16.78 20.78C19.91 19.07 22 15.76 22 12C22 6.82 18.05 2.55 13 2.05M11 2C9.05 2.2 7.2 2.96 5.68 4.21L7.1 5.63C8.23 4.75 9.58 4.2 11 4V2M4.2 5.68C2.96 7.2 2.2 9.05 2 11H4C4.19 9.58 4.75 8.23 5.63 7.1L4.2 5.68M6 8V10H9V11H8C6.9 11 6 11.9 6 13V16H11V14H8V13H9C10.11 13 11 12.11 11 11V10C11 8.9 10.11 8 9 8H6M12 8V13H15V16H17V13H18V11H17V8H15V11H14V8H12M2 13C2.2 14.95 2.97 16.8 4.22 18.32L5.64 16.9C4.76 15.77 4.2 14.42 4 13H2M7.11 18.37L5.68 19.79C7.2 21.03 9.05 21.8 11 22V20C9.58 19.81 8.24 19.25 7.11 18.37Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Horario:</h3></div>
+                                <div class="detail-items-text-description"><h4>Los dos días de duración del curso, se impartirá desde las 10:00 a las 18:00 con un descanso de una hora a las 13:00.</h4></div>
+                            </div>
+                        </div>
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>human-male-board</title><path d="M20,17A2,2 0 0,0 22,15V4A2,2 0 0,0 20,2H9.46C9.81,2.61 10,3.3 10,4H20V15H11V17M15,7V9H9V22H7V16H5V22H3V14H1.5V9A2,2 0 0,1 3.5,7H15M8,4A2,2 0 0,1 6,6A2,2 0 0,1 4,4A2,2 0 0,1 6,2A2,2 0 0,1 8,4Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Tutor:</h3></div>
+                                <div class="detail-items-text-description"><h4>El gran Julio Cortázar será el encargado de enseñarte las maravillas de la aerografía, con sus más de veinte años de experiencia.</h4></div>
+                            </div>
+                        </div>
+                        <div class="details-item">
+                            <div class="detail-items-image">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>palette-advanced</title><path d="M22,22H10V20H22V22M2,22V20H9V22H2M18,18V10H22V18H18M18,3H22V9H18V3M2,18V3H16V18H2M9,14.56A3,3 0 0,0 12,11.56C12,9.56 9,6.19 9,6.19C9,6.19 6,9.56 6,11.56A3,3 0 0,0 9,14.56Z" /></svg>
+                            </div>
+                            <div class="detail-items-text">
+                                <div class="detail-items-text-title"><h3>Productos:</h3></div>
+                                <div class="detail-items-text-description"><h4>Los productos de aerografía que se usarán en el curso, pertenecen a la gama de aerógrafo de la marca Vallejo.</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team">
+                <div class="team-title"><h2>Conoce a nuestro equipo:</h2></div>
+                <div class="team-description"><h3>Los profesionales de ChromatIC están siempre a tu disposición. Estos son los integrantes de nuestro maravilloso equipo de talentos bajo nuestra marca.</h3></div>
+                <div class="four-columns">
+                    <div class="column">
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <picture>
+                                    <a href="#"><img src="../images/Team-member-1.jpg" alt="Julio Cortázar."></a>
+                                </picture>
+                            </div>
+                            <div class="team-member-title"><h3>Julio Cortázar.</h3></div>
+                            <div class="team-member-description"><h4>Maestro multidisciplinar de las artes gráficas, un tutor excelente y nuestro profesor designado de los cursos que se imparten en ChromatIC.</h4></div>
+                            <div class="team-member-socials">
+                                <div class="nav-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <picture>
+                                    <a href="#"><img src="../images/Team-member-4.jpg" alt="Núria Ramos."></a>
+                                </picture>
+                            </div>
+                            <div class="team-member-title"><h3>Núria Ramos.</h3></div>
+                            <div class="team-member-description"><h4>Community manager y Social media manager de ChromatIC, se encargará de que tu experiencia interactiva con las redes de ChromatIC sea completamente satisfactoria.</h4></div>
+                            <div class="team-member-socials"> <div class="nav-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <picture>
+                                    <a href="#"><img src="../images/Team-member-3.jpg" alt="Saúl Ibánez."></a>
+                                </picture>
+                            </div>
+                            <div class="team-member-title"><h3>Saúl Ibañez.</h3></div>
+                            <div class="team-member-description"><h4>Secretario y encargado de mantenimiento, familiarizado con el entorno artístico y experto en materiales y herramientas del área.</h4></div>
+                            <div class="team-member-socials"> <div class="nav-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="team-member">
+                            <div class="team-member-image">
+                                <picture>
+                                    <a href="#"><img src="../images/Team-member-2.jpg" alt="Sarah Roig."></a>
+                                </picture>
+                            </div>
+                            <div class="team-member-title"><h3>Sarah Roig.</h3></div>
+                            <div class="team-member-description"><h4>CEO y directora general de ChromatIC. Graduadad en economía y márketing por la universidad de Milwaukee.</h4></div>
+                            <div class="team-member-socials"> <div class="nav-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="contact-map"><iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.636353969573975%2C39.57497719823338%2C2.6398944854736333%2C39.57678410330158&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/39.57588/2.63812">Ver mapa más grande</a></small></div>
+                <div class="contact-card">
+                    <div class="contact-card-front">
+                        <div class="contact-card-title"><h2>Ponte en contacto.</h2></div>
+                        <div class="contact-card-details">
+                            <div class="contact-card-details-item">
+                                <div class="contact-card-details-item-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker</title><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg>
+                                </div>
+                                <div class="contact-card-details-item-description"><h3>Calle Falsa 123, puerta B</h3></div>
+                            </div>
+                            <div class="contact-card-details-item">
+                                <div class="contact-card-details-item-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>phone</title><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+                                </div>
+                                <div class="contact-card-details-item-description"><h3>+34 971 155 359</h3></div>
+                            </div>
+                            <div class="contact-card-details-item">
+                                <div class="contact-card-details-item-image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>email</title><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg>
+                                </div>
+                                <div class="contact-card-details-item-description"><h3>ChromatICservice@gmail.com</h3></div>
+                            </div>
+                        </div>
+                        <div class="contact-card-checkout"><h2>Contáctanos.</h2></div>
+                    </div>
+                </div>
+            </div>
+        </main>       
 
         <!-- Pie de página -->
         <footer>
-            <p>© 2019 - Todos los derechos reservados</p>
+            <div class="footer-socials">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>facebook</title><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg></a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>linkedin</title><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" /></svg></a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>youtube</title><path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" /></svg></a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>google-plus</title><path d="M23,11H21V9H19V11H17V13H19V15H21V13H23M8,11V13.4H12C11.8,14.4 10.8,16.4 8,16.4C5.6,16.4 3.7,14.4 3.7,12C3.7,9.6 5.6,7.6 8,7.6C9.4,7.6 10.3,8.2 10.8,8.7L12.7,6.9C11.5,5.7 9.9,5 8,5C4.1,5 1,8.1 1,12C1,15.9 4.1,19 8,19C12,19 14.7,16.2 14.7,12.2C14.7,11.7 14.7,11.4 14.6,11H8Z" /></svg></a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>twitter</title><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" /></svg></a>
+                        </li>
+                        <li>
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>pinterest</title><path d="M9.04,21.54C10,21.83 10.97,22 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12C2,16.25 4.67,19.9 8.44,21.34C8.35,20.56 8.26,19.27 8.44,18.38L9.59,13.44C9.59,13.44 9.3,12.86 9.3,11.94C9.3,10.56 10.16,9.53 11.14,9.53C12,9.53 12.4,10.16 12.4,10.97C12.4,11.83 11.83,13.06 11.54,14.24C11.37,15.22 12.06,16.08 13.06,16.08C14.84,16.08 16.22,14.18 16.22,11.5C16.22,9.1 14.5,7.46 12.03,7.46C9.21,7.46 7.55,9.56 7.55,11.77C7.55,12.63 7.83,13.5 8.29,14.07C8.38,14.13 8.38,14.21 8.35,14.36L8.06,15.45C8.06,15.62 7.95,15.68 7.78,15.56C6.5,15 5.76,13.18 5.76,11.71C5.76,8.55 8,5.68 12.32,5.68C15.76,5.68 18.44,8.15 18.44,11.43C18.44,14.87 16.31,17.63 13.26,17.63C12.29,17.63 11.34,17.11 11,16.5L10.33,18.87C10.1,19.73 9.47,20.88 9.04,21.57V21.54Z" /></svg></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-menu">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Política de privacidad.</a>
+                        </li>
+                        <li>
+                            <a href="#">Sobre nosotros.</a>
+                        </li>
+                        <li>
+                            <a href="#">Condiciones de uso.</a>
+                        </li>
+                        <li>
+                            <a href="#">Aplicación móvil.</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem ipsum.</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-text">ChromatIC. All rights reserved.</div>
         </footer>
     </body>
 </html>
