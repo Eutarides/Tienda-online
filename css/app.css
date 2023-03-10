@@ -1,35 +1,102 @@
+body{
+    display:flex;
+    flex-direction:column;    
+    margin: 1rem 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+main{
+    margin: 1rem 0;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, a, p{
+    color: hsl(0, 0%, 34%);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a, td, th, p, button, span, label, select, input, textarea, li{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+h4 {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 300ms;
+}
+
+a:hover, a:focus {
+        outline: none;
+        text-decoration: none;
+        outline-offset: 0;
+}
+
+img{
+    object-fit: cover;
+    max-width: 100%;
+}
+
+video{
+    max-width: 100%;
+}
+
 header{
     display: flex;
-    justify-content:space-around;
-    flex-direction: row;
-}
-
-.header-logo{
-    
-}
-
-.header-logo a{
-
-}
-
-.header-menu{
-    display: flex;
     justify-content: space-between;
-    flex-direction: column
+    flex-direction: row;
+    align-items: center;
+    margin: 0 15%;
+    width: 70%;
+}
+
+.header-logo picture a img{
+    width:90%;
 }
 
 .header-menu nav ul{
     display: flex;
+    gap: 2rem;
     justify-content: space-between;
-    gap: 2em;
 }
 
 .header-menu nav ul li a{
 
 }
 
-.header-checkout{
-    display: flex;
+.header-checkout button{
+    border-radius: 30px;
+    background-color:hsl(32, 88%, 50%) ;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    width:100%;
 }
 
 .header-checkout a{
@@ -44,14 +111,17 @@ main{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .slider-title{
     text-align: center;
+    width:50%;
 }
 
 .slider-description{
     text-align: center;
+    width:30%;
 }
 
 .slider-button{
@@ -59,15 +129,17 @@ main{
 }
 
 .slider-image{
-    
+    justify-content: center;
 }
 
 .slider-image a{
-
+    justify-content: center;
 }
 
 .featured{
-  
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .featured-title{
@@ -84,15 +156,23 @@ main{
 
 .three-columns{
     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .column{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width:25%;
 }
 
 .featured-item{
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:25%;
+    
 }
 
 .featured-item-image{
@@ -100,7 +180,7 @@ main{
 }
 
 .featured-item-image a{
-
+    
 }
 
 .featured-item-title{
@@ -113,6 +193,8 @@ main{
 
 .details{
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .details-item{
@@ -141,6 +223,8 @@ main{
 
 .team{
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .team-title{
@@ -153,10 +237,14 @@ main{
 
 .four-columns{
     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .team-member{
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .team-member-image{
@@ -229,10 +317,21 @@ main{
 
 footer{
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .footer-socials{
     display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer-socials nav ul{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap:2em;
 }
 
 .footer-socials nav ul li a{
@@ -241,6 +340,15 @@ footer{
 
 .footer-menu{
     display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer-menu nav ul{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    gap:2em;
 }
 
 .footer-menu nav ul li a{
