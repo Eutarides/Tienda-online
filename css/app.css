@@ -15,6 +15,7 @@ header{
 .header-menu{
     display: flex;
     justify-content: space-between;
+    flex-direction: column
 }
 
 .header-menu nav ul{
