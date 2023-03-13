@@ -1,13 +1,12 @@
 body{
+    background-color: white;
     display:flex;
     flex-direction:column;    
-    margin: 1rem 0;
-    min-height: 100vh;
+    min-height: 110vh;
     width: 100%;
 }
 
 main{
-    margin: 1rem 0;
     width: 100%;
 }
 
@@ -71,14 +70,9 @@ video{
 header{
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     align-items: center;
-    margin: 0 15%;
-    width: 70%;
-}
-
-.header-logo picture a img{
-    width:90%;
+    margin: 0 10%;
+    width: 80%;
 }
 
 .header-menu nav ul{
@@ -88,48 +82,91 @@ header{
 }
 
 .header-menu nav ul li a{
-
+    color:hsl(0, 0%, 66%);
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .header-checkout button{
     border-radius: 30px;
-    background-color:hsl(32, 88%, 50%) ;
-    padding: 0.5rem 1rem;
+    background-color:hsl(27, 87%, 47%) ;
+    padding: 0.6rem 1rem;
     text-align: center;
     width:100%;
-}
-
-.header-checkout a{
-
-}
-
-main{
-    
+    border:none;
+    color: white;
 }
 
 .slider{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+    width:100%;
 }
 
 .slider-title{
+    position: absolute;
     text-align: center;
-    width:50%;
+    left: 10%;
+    top: 23%;
+    z-index: 1001;
+}
+
+.slider-title h1{
+    font-size: 3.5rem;
+    color: rgb(255, 255, 255);
 }
 
 .slider-description{
+    position: absolute;
     text-align: center;
-    width:30%;
+    width: 50%;
+    left: 5%;
+    top: 40%;
+    z-index:1001;
+}
+
+.slider-description p{
+    color:rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 160%;
 }
 
 .slider-button{
+    position: absolute;
+    border-radius: 35px;
+    background-color:hsl(207, 76%, 53%);
+    padding: 0.6rem 1rem;
+    text-align: center;
+    border:none;
+    color: white;
+    width:22%;
+    left: 18%;
+    z-index: 1001;
+    top: 60%;
+}
 
+.slider-button button{
+    border-radius: 30px;
+    background-color: hsl(207, 76%, 53%);
+    cursor: pointer;
+    text-align: center;
+    border:none;
+    color: white;
+    width:100%;
+    font-size:1.7rem;
+    height:3rem;
 }
 
 .slider-image{
-    justify-content: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
 }
 
 .slider-image a{
@@ -140,24 +177,46 @@ main{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin: 5% 20% 15%;
+    text-align: center;
+    align-items: center;
 }
 
 .featured-title{
+    padding:0 0 1%;
+}
+
+.featured-title h2{
+    font-size:3rem;
+    color:rgb(61, 61, 61);
+    text-transform: uppercase;
 
 }
 
 .featured-description{
+    width:73%;
+}
 
+.featured-description p{
+    font-size:1.3rem;
+    font-weight:100;
+    color:rgb(143, 143, 143);
+    word-spacing:0.2em;
+    line-height:1.7em;
 }
 
 .featured-items{
-
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top:7%;
 }
 
 .three-columns{
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    align-items: center;
+    height:20rem;
 }
 
 .column{
@@ -165,30 +224,45 @@ main{
     flex-direction: column;
     justify-content: space-between;
     width:25%;
+    align-items: center;
+    height:100%;
 }
 
 .featured-item{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width:25%;
-    
+    width:100%;
+    align-items: center;
+    height:100%;
 }
 
 .featured-item-image{
-
+    width:50%;
+    height:40%;
+    align-items: center;
 }
 
-.featured-item-image a{
-    
+.featured-item-image img{
+    height:100%;
 }
 
 .featured-item-title{
+    margin:20% 0 5%;
+}
 
+.featured-item-title h3{
+    font-size:1.6rem;
+    
 }
 
 .featured-item-description{
+    width:100%;
+}
 
+.featured-item-description p{
+    font-weight:100;
+    word-spacing: 0,8em;
+    line-height:1.6em;
 }
 
 .details{
