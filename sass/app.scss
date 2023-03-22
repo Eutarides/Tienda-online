@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+@import "helpers/mixins";
 @import "helpers/variables";
 @import "base/normalize";
 @import "base/typography";
@@ -13,3 +14,4 @@
 @import "components/faq";
 @import "components/featured";
 @import "components/team";
+ 

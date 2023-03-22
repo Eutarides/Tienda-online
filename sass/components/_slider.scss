@@ -68,6 +68,8 @@
     position: absolute;
     width: 100%;
     z-index: 1000;
+
+    @include fadeIn (1s, 5s);
 }
 
 .slider-image a{
