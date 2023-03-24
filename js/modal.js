@@ -1,7 +1,10 @@
 export default (() => {
-    const boton = document.querySelector('.header-checkout button');
-    const enlace = boton.querySelector('a');
+    const botones = document.querySelectorAll('.modal-button');
+    botones.forEach((boton)=>{
+        boton.addEventListener('click', ()=> {
+            console.log("clicaste");
+        })
 
-    console.log(boton);
+    });
   
 })();
