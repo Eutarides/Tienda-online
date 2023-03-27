@@ -2,70 +2,95 @@
     display: flex;
     justify-content: space-between;
     background-color:grey;
-    height:10%;
-    align-items:center;
-    width:40%;
-    padding:0, 30%;
+    width:50%;
+    height:30rem;
+    margin-left:23rem;
+}
+
+.modal.active{
+    opacity: 1;
+    z-index: 2000;
 }
 
 .image-column{
+    display:flex;
+    justify-content:space-between;
+    height:100%;
+    width:70%;
+    align-items:center;
 
 }
 
 .image-column picture{
-
+    margin-left:2rem;
 }
 
 .modal-column{
-
+    display:flex;
+    justify-content:space-between;
+    width:75%;
+    align-items:center;
 }
 
 .modal-item{
-
+    height:100%;
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .modal-item-title{
-
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    width:90%;
+    position:relative;
+    height:15%;
 }
 
 .modal-item-title h2{
-
+    position:absolute;
+    top:40%;
 }
 
 .modal-item-title h3{
-
+    position:absolute;
+    top:0%;
 }
 
 .modal-item-title h4{
-
+    position:absolute;
+    top:100%;
 }
 
-.modal-item-prize{
-
+.modal-item-price{
+    width:20%;
+    margin-left:5rem;
 }
 
 .modal-item-price h2{
-
+    
 }
 
 .modal-item-offer{
-
+    width:55%;
+    align-items: center;
 }
-
 .modal-item-offer h3{
-
+  
 }
 
 .modal-item-description{
-
+    width:90%;
 }
 
 .modal-item-description p{
-
+    
 }
 
 .modal-item-button{
-
+    width:90%;
 }
 
 .modal-item-button button{

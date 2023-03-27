@@ -1,8 +1,10 @@
 export default (() => {
     const botones = document.querySelectorAll('.modal-button');
+    const modal = document.querySelector('.modal');
+
     botones.forEach((boton)=>{
         boton.addEventListener('click', ()=> {
-            console.log("clicaste");
+            modal.classList.toggle('active');
         })
 
     });
