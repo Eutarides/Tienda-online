@@ -432,10 +432,9 @@ footer {
 .modal {
   display: flex;
   justify-content: space-between;
-  background-color: grey;
-  width: 50%;
-  height: 30rem;
-  margin-left: 23rem;
+  width: 60%;
+  height: 33rem;
+  margin-left: 21rem;
 }
 
 .modal.active {
@@ -482,16 +481,24 @@ footer {
 .modal-item-title h2 {
   position: absolute;
   top: 40%;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: hsl(0, 0%, 21%);
 }
 
 .modal-item-title h3 {
   position: absolute;
   top: 0%;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .modal-item-title h4 {
   position: absolute;
   top: 100%;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 .modal-item-price {
@@ -499,17 +506,44 @@ footer {
   margin-left: 5rem;
 }
 
+.modal-item-price h2 {
+  color: hsl(207, 76%, 53%);
+}
+
 .modal-item-offer {
-  width: 55%;
-  align-items: center;
+  width: 23%;
+  background-color: hsl(27, 87%, 47%);
+  text-align: center;
+  margin-right: 37%;
+}
+
+.modal-item-offer h3 {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: white;
 }
 
 .modal-item-description {
   width: 90%;
 }
 
+.modal-item-description p {
+  font-weight: 200;
+}
+
 .modal-item-button {
   width: 90%;
+  height: 5rem;
+}
+
+.modal-item-button button {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(207, 76%, 53%);
+  font-size: 1.7rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .slider {
@@ -790,7 +824,7 @@ footer {
 
 .faq-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   flex-direction: row;
   flex-wrap: wrap;
   max-height: 20rem;
@@ -799,6 +833,8 @@ footer {
 
 .faq-item-title {
   width: 90%;
+  border-bottom: 1px solid gray;
+  height: 50%;
 }
 
 .faq-item-title h3 {
@@ -807,7 +843,15 @@ footer {
 }
 
 .faq-item-description {
+  height: 0;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.faq-item-description.active {
   width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 .faq-item-description p {
@@ -819,12 +863,46 @@ footer {
   font-weight: 400;
 }
 
-.faq-item-svg {
-  width: 2%;
+.plus-minus-toggle {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
 }
 
-.faq-item-svg svg {
-  fill: hsl(0, 0%, 25%);
+.plus-minus-toggle::before,
+.plus-minus-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.plus-minus-toggle::before {
+  transform-origin: center center;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.plus-minus-toggle::after {
+  transform-origin: center center;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.plus-minus-toggle.active::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.plus-minus-toggle.active::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.plus-minus-toggle.active::before {
+  opacity: 0;
 }
 
 .featured {
@@ -992,8 +1070,10 @@ footer {
   top: 1rem;
   right: 1rem;
   width: 1rem;
-  height: 9rem;
+  height: 7rem;
   z-index: 1001;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-member-hamburger {
@@ -1042,8 +1122,9 @@ footer {
 
 .team-member-hamburger.active .line-1 {
   transform: translateY(0.65rem) translateX(0) rotate(45deg);
-  -webkit-transform: translateY(0.32rem) translateX(0) rotate(45deg);
+  -webkit-transform: translateY(0rem) translateX(0rem) rotate(45deg);
   -moz-transform: translateY(0.65rem) translateX(0) rotate(45deg);
+  top: 25%;
 }
 
 .team-member-hamburger.active .line-2 {
@@ -1053,7 +1134,8 @@ footer {
 .team-member-hamburger.active .line-3 {
   transform: translateY(-0.65rem) translateX(0) rotate(-45deg);
   -webkit-transform: translateY(-0.32rem) translateX(0px) rotate(-45deg);
-  -moz-transform: translateY(-1.65rem) translateX(0) rotate(-45deg);
+  -moz-transform: translateY(-0.65rem) translateX(0) rotate(-45deg);
+  top: 40%;
 }
 
 .team-member-image {
@@ -1066,36 +1148,14 @@ footer {
   font-weight: 100;
 }
 
-.team-member-svg-facebook {
-  position: absolute;
-  top: 100%;
-  z-index: 2002;
+.team-member svg {
   width: 100%;
   fill: white;
+  opacity: 0;
 }
 
-.team-member-svg-twitter {
-  position: absolute;
-  top: 200%;
-  z-index: 2002;
-  width: 100%;
-  fill: white;
-}
-
-.team-member-svg-linkedin {
-  position: absolute;
-  top: 300%;
-  z-index: 2002;
-  width: 100%;
-  fill: white;
-}
-
-.team-member-svg-instagram {
-  position: absolute;
-  top: 400%;
-  z-index: 2002;
-  width: 100%;
-  fill: white;
+.team-member svg.active {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -6,9 +6,9 @@ export default (() => {
             hamburger.parentElement.classList.toggle('active');
 
             let svgs = hamburger.parentElement.querySelectorAll('svg');
-
-            svgs.forEach(svg => {
-                svg.classList.toggle("active");
+            
+            svgs.forEach((svg)=>{
+                svg.classList.toggle('active');
             })
         })
     });
