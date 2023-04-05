@@ -150,20 +150,92 @@
     color: white;
 }
 
-.modal-item-description{
-    width:95%;
-    margin-top: 4rem;
+.tabs{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25%;
+    width:90%;
+    margin-top:1rem;
 }
 
-.modal-item-description p{
-    font-weight: 200;
-    line-height: 1.7rem;
+.tabs-header{
+    width:90%;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: row;
+    height:20%;
+}
+
+.tab{
+    width:30%;
+}
+
+.tab button{
+    background-color: $primary-color;
+    border-radius: 5px;
+    border:none;
+    width:100%;
+    height:100%;
+}
+
+.tab button.active{
+    background-color: hsl(240, 35%, 49%);
+    border-radius: 5px;
+    border:none;
+    width:100%;
+    height:100%;
+}
+
+.tab button p{
+    color:white;
+}
+
+.tabs-contents{
+    height:65%;
+}
+
+.tab-content{
+    position: relative;
+    height:16%;
+    width:45%;
+}
+
+.tab-content.length{
+    position: absolute;
+    opacity: 0;
+}
+
+.tab-content p{
+
+}
+
+.tab-content.length.active{
+    opacity: 1;
+}
+
+.tab-content.address{
+    position: absolute;
+    opacity: 0;
+}
+
+.tab-content.address.active{
+    opacity: 1;
+}
+
+.tab-content.required{
+    position: absolute;
+    opacity: 1;
+}
+
+.tab-content.required.active{
+    opacity:1;
 }
 
 .modal-item-button{
     width:90%;
     height:5rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 .modal-item-button button{
@@ -176,12 +248,55 @@
     border-radius: 5px;
 }
 
+.plus-minus-button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:90%;
+    margin-top: 1rem;
+    height:6%;
+}
+.plus-minus-button input{
+    width:10%;
+    height:85%;
+   text-align: center;
+}
+
+.plus-button{
+    height: 100%;
+    width: 7%;
+}
+
+.plus-button button{
+    height: 100%;
+    border:none;
+    background-color: $primary-color;
+    border-radius: 5px;
+    width:100%;
+    color:white;
+}
+
+.minus-button{
+    height: 100%;
+    width: 7%;
+}
+
+.minus-button button{
+    height:100%;
+    height: 100%;
+    border:none;
+    background-color: $primary-color;
+    border-radius: 5px;
+    width:100%;
+    color:white;
+}
+
 .formulario{
     height:90%;
     display:flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-top:4rem;
+    margin-top:2rem;
     width:90%;
 }
 
@@ -250,4 +365,3 @@
     border:none;
     border-radius: 5px;
 }
-
