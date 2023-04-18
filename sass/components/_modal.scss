@@ -156,7 +156,7 @@
     justify-content: space-between;
     height: 25%;
     width:90%;
-    margin-top:3rem;
+    margin-top:1rem;
 }
 
 .tabs-header{
@@ -216,7 +216,7 @@
 
 .tab-content.length.active{
     opacity: 1;
-    background-color: $primary-color;
+    background-color: $secondary-color;
 }
 
 .tab-content.address{
@@ -226,13 +226,13 @@
 
 .tab-content.address.active{
     opacity: 1;
-    background-color: $primary-color;
+    background-color: $secondary-color;
 }
 
 .tab-content.required{
     position: absolute;
-    opacity: 1;
-    background-color: $primary-color;
+    opacity: 0;
+    background-color: $secondary-color;
 }
 
 .tab-content.required.active{

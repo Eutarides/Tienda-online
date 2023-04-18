@@ -8,7 +8,15 @@ export default (() => {
             let units = plus.closest('.plus-minus-button').querySelector('input');
     
             units.value = (parseInt(units.value)+1)
+
+            document.dispatchEvent(new CustomEvent('notification', {
+                detail: {
+                    text: "Producto añadido a la cesta",
+                    type: 'success'
+                }
+            }))
         });
+        
     })
 
     minuss.forEach((minus)=>{
@@ -18,6 +26,13 @@ export default (() => {
     
             if(units.value > 1){
                 units.value = (parseInt(units.value)-1)
+
+                document.dispatchEvent(new CustomEvent('notification', {
+                    detail: {
+                        text: "Producto eliminado de la cesta",
+                        type: 'error'
+                    }
+                }))
             }
         });
     })

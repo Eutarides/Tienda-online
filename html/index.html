@@ -59,6 +59,9 @@
             </div>
         </header>
         <main>
+            <div class="notification">
+                <p id="notification-text"></p>
+            </div>
             <div class="overlay">
                 <div class="modal">
                     <div class="image-column">
@@ -86,29 +89,29 @@
                                 <div class="tabs">
                                     <div class="tabs-header">
                                         <div class="tab dur">
-                                            <button>
+                                            <button data-value="1" class="active">
                                                 <p>Duración</p>
                                             </button>
                                         </div>
                                         <div class="tab dir">
-                                            <button>
+                                            <button data-value="2">
                                                 <p>Dirección</p>
                                             </button>
                                         </div>
                                         <div class="tab req">
-                                            <button>
+                                            <button data-value="3">
                                                 <p>Requisitos</p>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="tabs-contents">
-                                        <div class="tab-content length">
+                                        <div class="tab-content length active" data-value="1">
                                             <p>El curso tendrá una duración de doce horas repartidas en dos días del fin de semana especificado en la fecha.</p>
                                         </div>
-                                        <div class="tab-content address">
+                                        <div class="tab-content address" data-value="2">
                                             <p>La dirección del local y las oficins de ChromaIC es: Calle Falsa 123 en la localidad de Palma en la Isla de Mallorca, Islas Baleares.</p>
                                         </div>
-                                        <div class="tab-content required">
+                                        <div class="tab-content required" data-value="3">
                                             <p>Los requisitos mínimos son ganas de aprender una nueva técnica de pintura y la voluntad de integrar lo aprendido en tus hábitos artísticos.</p>
                                         </div>
                                     </div>
