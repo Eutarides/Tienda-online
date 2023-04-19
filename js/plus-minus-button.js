@@ -16,7 +16,7 @@ export default (() => {
                 }
             }))
         });
-        
+         
     })
 
     minuss.forEach((minus)=>{
