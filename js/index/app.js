@@ -6,3 +6,4 @@ import './faq.js';
 import './plus-minus-button.js';
 import './tabs.js';
 import './notification.js';
+import './inputCounter.js';

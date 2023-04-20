@@ -17,9 +17,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-        <link href="../style/app.css" rel="stylesheet">
+        <link href="../style/index/app.css" rel="stylesheet">
 
-        <script type="module" src="../js/app.js"></script>
+        <script type="module" src="../js/index/app.js"></script>
     </head>
 <!-- Dentro de la etiqueta body se encuentra la información sobre la página que interpretará el navegador y que aparecerá en la pantalla. -->
     <body>
@@ -126,30 +126,55 @@
                                         <button>+</button>
                                     </div>
                                 </div>
+
                                 <div class="modal-item-button">
                                     <button>INSCRIBEME</button>
                                 </div>
-                            <div class="formulario">
-                                <div class="goback-button">
-                                    <button>Volver atrás</button>
-                                </div>
-                                <div class="data-name">
-                                    <input name="Nombre" placeholder="Nombre">
-                                    <input name="Apellido" placeholder="Apellidos">
-                                </div>
-                                <div class="data-address">
-                                    <input name="Correo electrónico" placeholder="Correo electrónico">
-                                    <input name="Dirección" placeholder="Dirección">
-                                    <input name="Comunidad Autónoma" placeholder="Comunidad Autónoma">
-                                </div>
-                                <div class="data-postal">
-                                    <input name="Localidad" placeholder="Localidad">
-                                    <input name="Código postal" placeholder="Código postal">
-                                </div>
-                                <div class="purchase-button">
-                                    <button>FINALIZAR COMPRA</button>
-                                </div>
-                            </div>
+
+                                <form>
+                                    <div class="formulario">
+                                        <div class="goback-button">
+                                            <button>Volver atrás</button>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="name" type="text" placeholder="Nombre">
+                                            </div>
+                                            <div class="form-element">
+                                                <input name="apellido" type="text" placeholder="Apellidos">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <input name="email" type="text" placeholder="Correo electrónico">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <input name="direccion" type="text" placeholder="Dirección">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <input name="comunidad-autonoma" type="text" placeholder="Comunidad Autónoma">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <input name="localidad" type="text" placeholder="Localidad">
+                                            </div>
+                                            <div class="form-element">
+                                                <input name="codigo-postal" type="text" placeholder="Código postal">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <button>FINALIZAR COMPRA</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -208,7 +233,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="faq">
                 <div class="faq-title">
                     <h2>Bootstrap 5 FAQ</h2>
