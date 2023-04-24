@@ -17,9 +17,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-        <link href="../style/index/app.css" rel="stylesheet">
+        <link href="../style/front/app.css" rel="stylesheet">
 
-        <script type="module" src="../js/index/app.js"></script>
+        <script type="module" src="../js/front/app.js"></script>
     </head>
 <!-- Dentro de la etiqueta body se encuentra la información sobre la página que interpretará el navegador y que aparecerá en la pantalla. -->
     <body>
@@ -139,38 +139,50 @@
                                         <div class="form-row">
                                             <div class="form-element">
                                                 <span class="counter"></span>
-                                                <input class="limit-counter" name="name" type="text" placeholder="Nombre">
+                                                <input class="limit-counter" name="name" type="text" placeholder="Nombre" data-validate="only-letters">
                                             </div>
                                             <div class="form-element">
-                                                <input name="apellido" type="text" placeholder="Apellidos">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <input name="email" type="text" placeholder="Correo electrónico">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="apellidos" type="text" placeholder="Apellidos" data-validate="only-letters">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-element">
-                                                <input name="direccion" type="text" placeholder="Dirección">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="email" type="text" placeholder="Correo electrónico" data-validate="email">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-element">
-                                                <input name="comunidad-autonoma" type="text" placeholder="Comunidad Autónoma">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="direccion" type="text" placeholder="Dirección">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-element">
-                                                <input name="localidad" type="text" placeholder="Localidad">
-                                            </div>
-                                            <div class="form-element">
-                                                <input name="codigo-postal" type="text" placeholder="Código postal">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="comunidad-autonoma" type="text" placeholder="Comunidad Autónoma" data-validate="only-letters">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-element">
-                                                <button>FINALIZAR COMPRA</button>
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="telefono" type="text" placeholder="Teléfono" data-validate="telephone">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="localidad" type="text" placeholder="Localidad" data-validate="only-letters">
+                                            </div>
+                                            <div class="form-element">
+                                                <span class="counter"></span>
+                                                <input class="limit-counter" name="codigo-postal" type="text" placeholder="Código postal" data-validate="only-numbers">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-element">
+                                                <button class="send-button">FINALIZAR COMPRA</button>
                                             </div>
                                         </div>
                                     </div>
@@ -565,7 +577,7 @@
                             </div>
                         </div>
                         <div class="contact-card-checkout flip-button">
-                            <button>Contáctanos.</button>
+                            <button class="send-button">Contáctanos.</button>
                         </div>
                     </div>
                     <div class="contact-card-back">

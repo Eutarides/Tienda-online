@@ -15,7 +15,7 @@ export default (() => {
                 count = maxChars;
             }
 
-            counter.textContent = `${count}/${maxChars} caracteres`;
+            counter.textContent = `${count}/${maxChars}`;
 
         });
       

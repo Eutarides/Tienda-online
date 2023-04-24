@@ -24,7 +24,8 @@ export default (() => {
 
     let volver = document.querySelector('.goback-button');
 
-    volver.addEventListener('click' , ()=> {
+    volver.addEventListener('click' , event => {
+        event.preventDefault();
         modal.classList.toggle('active');
     });
 
