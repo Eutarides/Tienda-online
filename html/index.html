@@ -19,44 +19,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
         <link href="../style/front/app.css" rel="stylesheet">
 
-        <script type="module" src="../js/front/app.js"></script>
+        <script type="module" src="../src/index.js"></script>
     </head>
 <!-- Dentro de la etiqueta body se encuentra la información sobre la página que interpretará el navegador y que aparecerá en la pantalla. -->
     <body>
 
         <!-- Cabecera -->
         <header>
-            <div class="header-logo">
-                <picture>
-                    <a href="#"><img src="../images/Logo.webp" alt="Chromatic, vive tus colores."></a>
-                </picture>
-            </div>
-            <div class="header-menu">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#">INICIO</a>
-                        </li>
-                        <li>
-                            <a href="#">OBJETIVOS</a>
-                        </li>
-                        <li>
-                            <a href="#">INFORMACIÓN</a>
-                        </li>
-                        <li>
-                            <a href="#">NUESTRO EQUIPO</a>
-                        </li>
-                        <li>
-                            <a href="#">CONTACTO</a>
-                        </li>
-                    </ul>
-                </nav>   
-            </div>
-            <div class="header-checkout modal-button">
-                <button>
-                    <a href="#">INSCRIBIRME</a>
-                </button>
-            </div>
+            <logo-component>
+
+            </logo-component>
+            <menu-component>
+                
+            </menu-component>
+            <modal-button-component>
+
+            </modal-button-component>
         </header>
         <main>
             <div class="notification">
@@ -192,18 +170,9 @@
                     </div>
                 </div>
             </div>
-            <div class="slider">
-                <div class="slider-title"><h1>Iniciate en la aerografía</h1></div>
-                <div class="slider-description"><p>Aprende a usar esta increíble herramienta de trabajo artístico o expande tus conocimientos en la materia. ¿A qué esperas?</p></div>
-                <div class="slider-image">
-                    <picture>
-                        <img src="../images/slider.webp" alt="Mano sosteniendo aerógrafo.">
-                    </picture>
-                </div>
-                <div class="slider-button modal-button">
-                    <button>APÚNTAME</button>
-                </div>
-            </div>
+            <slider-component>
+                
+            </slider-component>
             <div class="featured">
                 <div class="featured-title"><h2>Objetivos del curso</h2></div>
                 <div class="featured-description"><p>Si quieres aprender a manejar el aerógrafo estas son las áreas esenciales para desarrollarte en el manejo de esta herramnienta.</p></div>
