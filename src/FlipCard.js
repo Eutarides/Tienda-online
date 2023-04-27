@@ -74,8 +74,8 @@ class FlipCard extends HTMLElement {
                 transform: perspective(1000px) rotateY(0deg);
             }
             .contact-close-button{
-                width:70%;
-                margin-left:15%;
+                width:80%;
+                margin-left:10%;
                 height:20%;
                 display: flex;
                 align-items: center;
@@ -83,7 +83,7 @@ class FlipCard extends HTMLElement {
             }
             button{
                 width:100%;
-                height:50%;
+                height:70%;
                 align-items: center;
                 background-color: hsl(207, 76%, 53%);
                 border:none;
@@ -93,7 +93,7 @@ class FlipCard extends HTMLElement {
                 -webkit-appearance: button;
                 text-transform: none;
                 overflow: visible;
-                font-size: 100%;
+                font-size: 1.2rem;
                 line-height: 1.15;
                 margin: 0;
             }
@@ -109,13 +109,12 @@ class FlipCard extends HTMLElement {
                 <div class="contact-card-back">
                     <slot name="back"></slot>
                     <div class="contact-close-button flip-button">
-                        <button>Close</button>
+                        <button>Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
         `;
-
     }
 }
 

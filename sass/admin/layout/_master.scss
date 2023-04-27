@@ -1,14 +1,26 @@
 body{
-    background-color: white;
-    display:flex;
+    background-color:rgb(61, 61, 197);
     flex-direction:column;    
-    min-height: 110vh;
+    min-height: 90vh;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    display:flex;
+    justify-content: space-between;
+    gap:5rem;
 }
 
 main{
     width: 100%;
-    justify-content: center;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+header section{
+    width:10%;
+}
+
+section{
+    width:100%;
 }

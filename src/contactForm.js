@@ -12,32 +12,35 @@ class ContactForm extends HTMLElement {
         `
         <style>
             .form{
-                height:90%;
+                height:100%;
             }
             .formulario{
                 height:100%;
                 display:flex;
                 justify-content: space-between;
                 flex-direction: column;
-                gap: 1rem;
+                gap:3rem;
                 margin-top:2rem;
                 width:80%;
-                padding-left:10%;
+                margin-left:10%;
             }
             .form-row{
                 display: flex;
                 justify-content: space-between;
                 gap: 1rem;
-                margin-top:1rem;
+                height:3rem;
             }
             .form-row .form-element{
                 width: 100%;
-                height:10%;
+                height:100%;
             }
             .form-row input{
                 box-sizing: border-box;
                 width: 100%;
                 height:100%;
+                border-radius:5px;
+                font-size:1rem;
+                font-weight:600;
             }
             .form-element button{
                 width: 100%;
@@ -50,6 +53,7 @@ class ContactForm extends HTMLElement {
             }
             .form-element{
                 position: relative;
+                height:100%;
             }
             .counter{
                 position:absolute;

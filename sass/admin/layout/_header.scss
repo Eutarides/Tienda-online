@@ -2,28 +2,76 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 10%;
-    width: 80%;
+    width: 90%;
+    background-color: rgb(61, 61, 197);
+    border-radius: 5px;
 }
 
-.header-menu nav ul{
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
+.header-title{
+    padding-left:10%,
 }
 
-.header-menu nav ul li a{
-    color:hsl(0, 0%, 66%);
-    font-size: 1rem;
-    text-transform: uppercase;
+.header-title h1{
+    color:white;
 }
 
-.header-checkout button{
-    border-radius: 30px;
-    background-color:$secondary-color ;
-    padding: 0.6rem 1rem;
-    text-align: center;
-    width:100%;
-    border:none;
-    color: white;
+.hamburger{
+    height: 2rem;
+    width: 10%;
+    position:relative;
+}
+
+.hamburger .line {
+    display: block;
+    background-color: hsl(192, 15%, 94%);
+    width: 30%;
+    height: 0.3rem;
+    position: absolute;
+    left:85%;
+    border-radius: 0.25rem;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+.hamburger .line.line-1 {
+    top: 10%;
+}
+
+.hamburger .line.line-2 {
+    top: 50%;
+}
+
+.hamburger .line.line-3 {
+    top: 90%;
+}
+
+.hamburger:hover .line-1, .hamburger:focus .line-1 {
+    transform: translateY(-0.25rem);
+    -webkit-transform: translateY(-0.25rem);
+    -moz-transform: translateY(-0.25rem);
+}
+
+.hamburger:hover .line-3, .hamburger:focus .line-3 {
+    transform: translateY(0.25rem);
+    -webkit-transform: translateY(0.25rem);
+    -moz-transform: translateY(0.25rem);
+}
+
+.hamburger.active .line-1 {
+    transform: translateY(0.65rem) translateX(0) rotate(45deg);
+    -webkit-transform: translateY(0rem) translateX(0rem) rotate(45deg);
+    -moz-transform: translateY(0.65rem) translateX(0) rotate(45deg);
+    top: 25%;
+}
+
+.hamburger.active .line-2 {
+    opacity: 0;
+}
+
+.hamburger.active .line-3 {
+    transform: translateY(-0.65rem) translateX(0) rotate(-45deg);
+    -webkit-transform: translateY(-0.32rem) translateX(0px) rotate(-45deg);
+    -moz-transform: translateY(-0.65rem) translateX(0) rotate(-45deg);
+    top: 40%;
 }

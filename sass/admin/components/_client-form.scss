@@ -1,0 +1,87 @@
+.client-form{
+    width:65%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+}
+
+.image-menu{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom:2rem;
+}
+
+.image-menu-title{
+    width:12%;
+    background-color:rgb(119, 173, 193);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.image-menu-title h3{
+    text-align: center;
+    padding-left:10%;
+    color:white;
+}
+
+.image-input{
+    width:80%;
+    height:2.7rem;
+}
+
+.image-input input{
+    width:99%;
+    height:95%;
+    border-style: none;
+    font-weight: 800;
+}
+
+.image-menu svg{
+    width:5%;
+    fill:rgb(119, 173, 193);
+}
+
+.form-row{
+    display: flex;
+    height:45%;
+    align-items:center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-element{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    gap:1rem;
+    width: 100%;
+}
+
+.element-placeholder{
+    height:20%;
+    margin: 1% 0 1%;
+    width:100%;
+}
+
+.element-placeholder p{
+    font-size: 1.2rem;
+    color:white;
+}
+
+.form-element input{
+    height:40%;
+    border-radius:7px;
+    border-style: none;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-color:rgb(96, 105, 201) ;
+}
