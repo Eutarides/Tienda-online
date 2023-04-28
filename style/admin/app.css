@@ -565,92 +565,381 @@ section {
   height: 100%;
 }
 
-.client-form {
-  width: 65%;
+.overlay {
+  background-color: hsl(0, 0%, 100%);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3000;
+  display: none;
+}
+
+.overlay.active {
+  background-color: hsl(0, 0%, 100%);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3000;
+  display: block;
+}
+
+.modal {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  height: 60vh;
+  left: 20%;
+  position: fixed;
+  top: 20%;
+  box-shadow: 0rem 0rem 2rem 1rem hsl(0, 0%, 62%);
+}
+
+.image-column {
+  display: flex;
   justify-content: space-between;
   height: 100%;
-}
-
-.image-menu {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  background-color: white;
-  border-radius: 5px;
-  margin-bottom: 2rem;
-}
-
-.image-menu-title {
-  width: 12%;
-  background-color: rgb(119, 173, 193);
-  border-radius: 5px;
-  display: flex;
+  width: 85%;
   align-items: center;
 }
 
-.image-menu-title h3 {
+.image-column picture {
+  margin-left: 2rem;
+  width: 80%;
+  align-items: end;
+}
+
+.checkout-cross {
+  height: 5%;
+  width: 10%;
+  padding-left: 50%;
+  position: absolute;
+  z-index: 30001;
+}
+
+.checkout-cross svg {
+  width: 2rem;
+  fill: grey;
+}
+
+.modal-mother-column {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-column {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  transition: 0.7s;
+}
+
+.modal-column.active {
+  transform: translateY(-100%);
+  transition: 0.7s;
+}
+
+.modal-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.purchase-menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.modal-item-title {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 90%;
+  position: relative;
+  height: 15%;
+}
+
+.modal-item-title h2 {
+  position: absolute;
+  top: 40%;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: hsl(0, 0%, 21%);
+}
+
+.modal-item-title h3 {
+  position: absolute;
+  top: 0%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 370;
+  color: grey;
+}
+
+.modal-item-title h4 {
+  position: absolute;
+  top: 100%;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.modal-item-price {
+  width: 20%;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+
+.modal-item-price h2 {
+  color: hsl(207, 76%, 53%);
+  font-size: 2.8rem;
+}
+
+.modal-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.modal-item-offer {
+  width: 23%;
+  background-color: hsl(27, 87%, 47%);
   text-align: center;
-  padding-left: 10%;
+  margin-right: 35%;
+  border-radius: 2px;
+  height: 0.9rem;
+  margin-top: 1rem;
+}
+
+.modal-item-offer h3 {
+  text-transform: uppercase;
+  font-size: 0.7rem;
   color: white;
 }
 
-.image-input {
-  width: 80%;
-  height: 2.7rem;
+.modal-item-button {
+  width: 90%;
+  height: 5rem;
 }
 
-.image-input input {
-  width: 99%;
-  height: 95%;
-  border-style: none;
-  font-weight: 800;
+.modal-item-button button {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(207, 76%, 53%);
+  font-size: 1.7rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.image-menu svg {
-  width: 5%;
-  fill: rgb(119, 173, 193);
+.goback-button {
+  height: 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.goback-button button {
+  height: 100%;
+  border-radius: 10px;
+  border-width: 3px;
+  border-color: hsl(207, 76%, 53%);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25%;
+  width: 90%;
+}
+
+.tabs-header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 20%;
+}
+
+.tab {
+  width: 30%;
+}
+
+.tab button {
+  background-color: hsl(207, 76%, 53%);
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.tab button.active {
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(27, 87%, 47%);
+}
+
+.tab button p {
+  color: white;
+}
+
+.tabs-contents {
+  height: 65%;
+}
+
+.tab-content {
+  position: relative;
+  height: 16%;
+  width: 39%;
+  border-radius: 5px;
+}
+
+.tab-content.length {
+  position: absolute;
+  opacity: 0;
+}
+
+.tab-content p {
+  color: white;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.tab-content.length.active {
+  opacity: 1;
+  background-color: hsl(27, 87%, 47%);
+}
+
+.tab-content.address {
+  position: absolute;
+  opacity: 0;
+}
+
+.tab-content.address.active {
+  opacity: 1;
+  background-color: hsl(27, 87%, 47%);
+}
+
+.tab-content.required {
+  position: absolute;
+  opacity: 0;
+  background-color: hsl(27, 87%, 47%);
+}
+
+.tab-content.required.active {
+  opacity: 1;
+}
+
+.plus-minus-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-top: 1rem;
+  height: 6%;
+}
+
+.plus-minus-button input {
+  width: 10%;
+  height: 85%;
+  text-align: center;
+}
+
+.plus-button {
+  height: 100%;
+  width: 7%;
+}
+
+.plus-button button {
+  height: 100%;
+  border: none;
+  background-color: hsl(207, 76%, 53%);
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+}
+
+.minus-button {
+  height: 100%;
+  width: 7%;
+}
+
+.minus-button button {
+  height: 100%;
+  height: 100%;
+  border: none;
+  background-color: hsl(207, 76%, 53%);
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+}
+
+.formulario {
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 90%;
 }
 
 .form-row {
   display: flex;
-  height: 45%;
-  align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-row .form-element {
   width: 100%;
+  height: 10%;
+}
+
+.form-row input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.form-element button {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(207, 76%, 53%);
+  font-size: 1.7rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .form-element {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
+  position: relative;
 }
 
-.element-placeholder {
-  height: 20%;
-  margin: 1% 0 1%;
-  width: 100%;
+.counter {
+  position: absolute;
+  right: 5%;
+  top: 25%;
 }
 
-.element-placeholder p {
-  font-size: 1.2rem;
-  color: white;
-}
-
-.form-element input {
-  height: 40%;
-  border-radius: 7px;
-  border-style: none;
-  text-align: center;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: rgb(96, 105, 201);
+.invalid {
+  border: 1px solid red;
 }
 
 /*# sourceMappingURL=app.css.map */
