@@ -175,7 +175,20 @@ class Faq extends HTMLElement {
             </div>
         </div>
         `;
-
+        let plusminuss=this.shadow.querySelectorAll('.plus-minus-toggle');
+        let descriptions = this.shadow.querySelectorAll('.faq-item-description');
+        plusminuss.forEach((plusminus)=>{
+            plusminus.addEventListener('click',()=>{
+                plusminus.classList.toggle('active');
+    
+                let descriptions = plusminus.parentElement.querySelectorAll('.faq-item-description');
+    
+                descriptions.forEach((description)=>{
+                    description.classList.toggle('active');
+                })
+                
+            })
+        });
     }
 }
 

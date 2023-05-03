@@ -15,11 +15,24 @@ class ModalItem extends HTMLElement {
                 height:100%;
                 width:100%;
             }
+            .purchase-menu{
+                height:100%;
+                width:100%;
+            }
+            .modal-form{
+                height:100%;
+                width:100%;
+            }
         </style>
         <div class="modal-item">
-            <slot name="purchase-menu"></slot>
-            <slot name="modal-form"></slot>
+            <div class="purchase-menu">
+                <slot name="purchase-menu"></slot>
+            </div>
+            <div class="modal-form">
+                <slot name="modal-form"></slot>
+            </div>
         </div>
+
         `;
     }
 }

@@ -32,7 +32,7 @@
             <menu-component>
                 
             </menu-component>
-            <modal-button-component>
+            <modal-button-component event="modal">
 
             </modal-button-component>
         </header>
@@ -40,136 +40,24 @@
             <div class="notification">
                 <p id="notification-text"></p>
             </div>
-            <div class="overlay">
-                <div class="modal">
-                    <div class="image-column">
-                        <picture>
-                            <img src="../images/airbrush-detailed-modal.jpg" alt="aerógrafo evolution">
-                        </picture>
-                    </div>
-                    <div class="modal-mother-column">
-                        <div class="checkout-cross">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
-                        </div>
-                        <div class="modal-column">
-                            <div class="modal-item">
-                                <div class="modal-item-title">
-                                    <h2>Plazas Limitadas</h2>
-                                    <h3>Curso Aerografía</h3>
-                                    <h4>27 y 28 de enero de 2024</h4>
-                                </div>
-                                <div class="modal-item-price">
-                                    <h2>€150</h2>
-                                </div>
-                                <div class="modal-item-offer">
-                                    <h3>Edición única</h3>
-                                </div>
-                                <div class="tabs">
-                                    <div class="tabs-header">
-                                        <div class="tab dur">
-                                            <button data-value="1" class="active">
-                                                <p>Duración</p>
-                                            </button>
-                                        </div>
-                                        <div class="tab dir">
-                                            <button data-value="2">
-                                                <p>Dirección</p>
-                                            </button>
-                                        </div>
-                                        <div class="tab req">
-                                            <button data-value="3">
-                                                <p>Requisitos</p>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="tabs-contents">
-                                        <div class="tab-content length active" data-value="1">
-                                            <p>El curso tendrá una duración de doce horas repartidas en dos días del fin de semana especificado en la fecha.</p>
-                                        </div>
-                                        <div class="tab-content address" data-value="2">
-                                            <p>La dirección del local y las oficins de ChromaIC es: Calle Falsa 123 en la localidad de Palma en la Isla de Mallorca, Islas Baleares.</p>
-                                        </div>
-                                        <div class="tab-content required" data-value="3">
-                                            <p>Los requisitos mínimos son ganas de aprender una nueva técnica de pintura y la voluntad de integrar lo aprendido en tus hábitos artísticos.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="plus-minus-button">
-                                    <div class="minus-button">
-                                        <button>-</button>
-
-                                    </div>
-                                    <input type="number" value="1">
-                                    <div class="plus-button">
-                                        <button>+</button>
-                                    </div>
-                                </div>
-
-                                <div class="modal-item-button">
-                                    <button>INSCRIBEME</button>
-                                </div>
-
-                                <form>
-                                    <div class="formulario">
-                                        <div class="goback-button">
-                                            <button>Volver atrás</button>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="name" type="text" placeholder="Nombre" data-validate="only-letters">
-                                            </div>
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="apellidos" type="text" placeholder="Apellidos" data-validate="only-letters">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="email" type="text" placeholder="Correo electrónico" data-validate="email">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="direccion" type="text" placeholder="Dirección">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="comunidad-autonoma" type="text" placeholder="Comunidad Autónoma" data-validate="only-letters">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="telefono" type="text" placeholder="Teléfono" data-validate="telephone">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="localidad" type="text" placeholder="Localidad" data-validate="only-letters">
-                                            </div>
-                                            <div class="form-element">
-                                                <span class="counter"></span>
-                                                <input class="limit-counter" name="codigo-postal" type="text" placeholder="Código postal" data-validate="only-numbers">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-element">
-                                                <button class="send-button">FINALIZAR COMPRA</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <section>
+                <overlay-component>
+                    <modal-component slot="modal">
+                        <modal-image-component slot="modal-image"></modal-image-component>
+                        <modal-mother-column-component slot="modal-mother-column">
+                            <modal-column-component slot="modal-column">
+                                <modal-item-component slot="modal-item">
+                                    <purchase-menu-component slot="purchase-menu">
+                                        <modal-tabs-component slot="modal-tabs"></modal-tabs-component>
+                                        <modal-plus-minus-button-component slot="modal-plus-minus"></modal-plus-minus-button-component>
+                                    </purchase-menu-component>
+                                    <modal-form-component slot="modal-form"></modal-form-component>
+                                </modal-item-component>
+                            </modal-column-component>
+                        </modal-mother-column-component>
+                    </modal-component>
+                </overlay-component>
+            </section>
             <slider-component>
                 
             </slider-component>

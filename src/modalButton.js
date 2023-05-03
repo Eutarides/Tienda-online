@@ -48,6 +48,20 @@ class ModalButton extends HTMLElement {
             </button>
         </div>
         `;
+        const botones = this.shadow.querySelectorAll('.modal-button');
+        // const overlay = document.querySelector('.overlay');
+    
+        // botones.forEach((boton)=>{
+        //     boton.addEventListener('click', ()=> {
+        //         overlay.classList.toggle('active');
+        //     })
+    
+        // });
+        botones.forEach((boton)=>{
+            boton.addEventListener("click", () =>{
+                document.dispatchEvent(new CustomEvent('call'))
+            })
+        })
 
     }
 }

@@ -80,6 +80,19 @@ class Hamburger extends HTMLElement {
             <span class="line line-3"></span>
         </div>
         `;
+        let hamburgers = this.shadow.querySelectorAll('.hamburger');
+        hamburgers.forEach((hamburger)=>{
+            hamburger.addEventListener('click', ()=>{
+                hamburger.classList.toggle('active');
+                hamburger.parentElement.classList.toggle('active');
+
+                let svgs = hamburger.parentElement.querySelectorAll('svg');
+                
+                svgs.forEach((svg)=>{
+                    svg.classList.toggle('active');
+                })
+            })
+        });
 
     }
 }

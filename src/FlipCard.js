@@ -102,7 +102,7 @@ class FlipCard extends HTMLElement {
         <div class="contact">
             <div class="contact-map"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=2.636353969573975%2C39.57497719823338%2C2.6398944854736333%2C39.57678410330158&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/39.57588/2.63812">Ver mapa más grande</a></small>
             </div>
-            <div class="contact-card active">
+            <div class="contact-card">
                 <div class="contact-card-front">
                     <slot name="front"></slot>
                 </div>
@@ -115,6 +115,13 @@ class FlipCard extends HTMLElement {
             </div>
         </div>
         `;
+        const flipButtons = this.shadow.querySelectorAll('.flip-button');
+
+        flipButtons.forEach((flipButton)=>{
+            flipButton.addEventListener('click', () => {
+                flipButton.closest('.contact-card').classList.toggle('active');
+            })
+        });
     }
 }
 

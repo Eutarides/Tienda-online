@@ -13,8 +13,8 @@ class ModalMotherColumn extends HTMLElement {
         <style>
             .checkout-cross{
                 height:5%;
-                width:100%;
-                padding-left: 50%;
+                width:5%;
+                padding-left: 45%;
                 position:absolute;
                 z-index: 30001;
             }
@@ -33,7 +33,7 @@ class ModalMotherColumn extends HTMLElement {
             }
             .modal-column{
                 width:100%;
-                height:200%;
+                height:100%;
             }
         </style>
         <div class="modal-mother-column">

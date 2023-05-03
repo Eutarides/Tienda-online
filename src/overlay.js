@@ -30,7 +30,7 @@ class Overlay extends HTMLElement {
                 display: block;
             }
         </style>
-        <div class="overlay active">
+        <div class="overlay">
             <slot name="modal"></slot>
         </div>
         `;

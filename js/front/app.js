@@ -8,3 +8,4 @@
 // import './notification.js';
 // import './inputCounter.js';
 // import './send-button.js';
+import './call-modal.js';

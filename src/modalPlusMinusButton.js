@@ -15,9 +15,8 @@ class ModalPlusMinusButton extends HTMLElement {
                 display:flex;
                 align-items: center;
                 justify-content: center;
-                width:90%;
-                margin-top: 1rem;
-                height:6%;
+                width:100%;
+                height:80%;
             }
             .plus-minus-button input{
                 width:10%;

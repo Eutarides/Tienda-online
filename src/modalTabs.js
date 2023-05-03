@@ -15,11 +15,11 @@ class ModalTabs extends HTMLElement {
                 display:flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 25%;
-                width:90%;
+                height: 100%;
+                width:100%;
             }
             .tabs-header{
-                width:90%;
+                width:100%;
                 display:flex;
                 justify-content:space-between;
                 flex-direction: row;
@@ -60,11 +60,12 @@ class ModalTabs extends HTMLElement {
             }
             .tabs-contents{
                 height:65%;
+                width:100%;
             }
             .tab-content{
                 position: relative;
                 height:16%;
-                width:39%;
+                width:43%;
                 border-radius: 5px;
             }
             .tab-content.length{

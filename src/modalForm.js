@@ -11,15 +11,18 @@ class ModalForm extends HTMLElement {
         this.shadow.innerHTML = 
         `
         <style>
-
+            form{
+                height:100%;
+                width:100%;
+            }
             .formulario{
-                height:90%;
                 display:flex;
                 justify-content: space-between;
                 flex-direction: column;
                 gap: 1rem;
                 margin-top:2rem;
-                width:90%;
+                width:100%;
+                height:100%;
             }
             .form-row{
                 display: flex;
@@ -29,7 +32,7 @@ class ModalForm extends HTMLElement {
             }
             .form-row .form-element{
                 width: 100%;
-                height:10%;
+                height:100%;
             }
             .form-row input{
                 box-sizing: border-box;

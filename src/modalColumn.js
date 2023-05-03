@@ -26,7 +26,7 @@ class ModalColumn extends HTMLElement {
         </style>
         <div class="modal-column">
             <slot name="modal-item"></slot>
-        </div
+        </div>
         `;
 
     }

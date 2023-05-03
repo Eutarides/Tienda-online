@@ -27,7 +27,7 @@ class Modal extends HTMLElement {
                 height:100%;
             }
             .modal-mother-column{
-                width: 55%;
+                width: 50%;
                 height:100%;
             }
         </style>

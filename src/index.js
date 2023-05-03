@@ -22,8 +22,6 @@ import './modalMotherColumn.js';
 import './modalColumn.js';
 import './modalItem.js';
 import './purchaseMenu.js';
-import './modalItemTitle.js';
-import './modalPrice.js';
 import './modalPlusMinusButton.js';
 import './modalTabs.js';
 import './modalForm.js';
