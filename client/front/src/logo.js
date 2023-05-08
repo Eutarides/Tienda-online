@@ -16,7 +16,7 @@ class Logo extends HTMLElement {
                 max-width: 100%;
             }
             .header-logo{
-                width:15%;
+                width:100%;
             }
         </style>
         <div class="header-logo">

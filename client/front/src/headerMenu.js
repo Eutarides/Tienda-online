@@ -41,7 +41,7 @@ class Menu extends HTMLElement {
                 background-color: transparent;
             }
             .header-menu{
-                width:40%;
+                width:100%;
             }
         </style>
         <div class="header-menu">

@@ -16,7 +16,7 @@ class ModalButton extends HTMLElement {
                 background-color:$secondary-color ;
                 padding: 0.6rem 1rem;
                 text-align: center;
-                width:10%;
+                width:100%;
                 border:none;
                 color: white;
                 font-family: "Poppins", sans-serif;
@@ -27,6 +27,7 @@ class ModalButton extends HTMLElement {
                 line-height: 1.15;
                 margin: 0;
                 background-color: hsl(27, 87%, 47%);
+                margin-top:1rem;
             }
             a {
                 color:hsl(0, 0%, 66%);
