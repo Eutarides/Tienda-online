@@ -1,0 +1,21 @@
+body{
+    background-color:rgb(48, 48, 197) ;
+}
+
+header{
+    display:flex;
+    justify-content: space-between;
+    padding:0 5% 0 5%;
+}
+
+.logo{
+    width:20%;
+}
+
+.header-title{
+    width:15%;
+}
+
+.header-hamburger{
+    width:4%;
+}

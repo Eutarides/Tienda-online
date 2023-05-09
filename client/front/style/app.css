@@ -3,3 +3,31 @@ header{
     flex-direction: row;
     justify-content: space-between;
 }
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding:0 30% 0 30%;
+    width:100%;
+    height:10%;
+    flex-direction:row;
+}
+
+.footer-socials{
+    width:40%;
+    height:50%;
+}
+
+.footer-socials nav ul li svg{
+    width:40%;
+    fill:hsl(207, 76%, 53%);
+}
+
+.footer-socials nav ul li svg:hover{
+    fill:black;
+}
+.footer-socials nav ul{
+    display:flex;
+    flex-direction:row;
+    list-style: none;
+}

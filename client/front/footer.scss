@@ -1,0 +1,16 @@
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding:0 20% 0 20%;
+    width:100%;
+    height:20%;
+}
+
+.footer-socials{
+    width:100%;
+    height:50%;
+}
+
+.footer-socials nav ul li svg{
+    width:10%;
+}

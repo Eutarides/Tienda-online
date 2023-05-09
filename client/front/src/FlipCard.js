@@ -15,7 +15,6 @@ class FlipCard extends HTMLElement {
                 height:100vh;
                 position:relative;
                 width:100%;
-                margin-bottom: 35em;
             }
             .contact-map{
                 position:absolute;

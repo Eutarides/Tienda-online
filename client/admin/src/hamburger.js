@@ -12,18 +12,19 @@ class Hamburger extends HTMLElement {
         `
         <style>
             .hamburger{
-                height: 2rem;
+                height: 2.5rem;
                 width: 100%;
                 position:relative;
+                margin-top:0.5rem;
             }
             
             .hamburger .line {
                 display: block;
                 background-color:hsl(192, 15%, 94%);
-                width: 30%;
+                width: 100%;
                 height: 0.3rem;
                 position: absolute;
-                left:50%;
+                left:0%;
                 border-radius: 0.25rem;
                 transition: all 0.4s;
                 -webkit-transition: all 0.4s;

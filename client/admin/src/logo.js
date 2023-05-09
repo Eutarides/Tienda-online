@@ -16,12 +16,12 @@ class Logo extends HTMLElement {
                 max-width: 100%;
             }
             .header-logo{
-                width:30%;
+                width:100%;
             }
         </style>
         <div class="header-logo">
             <picture>
-                <a href="#"><img src="../images/Logo.webp" alt="Chromatic, vive tus colores."></a>
+                <a href="#"><img src="./images/Logo.webp" alt="Chromatic, vive tus colores."></a>
             </picture>
         </div>
         `;

@@ -21,22 +21,38 @@ class ClientForm extends HTMLElement {
             
             .image-menu{
                 display:flex;
-                justify-content: center;
+                justify-content: space-between;
                 flex-direction: row;
                 background-color: white;
                 border-radius: 5px;
                 margin-bottom:2rem;
             }
-            
+
             .image-menu-title{
-                width:12%;
+                width:30%;
+                display:flex;
+                flex-direction:row;
+                gap:1px;
+            }
+            
+            .image-menu-title-principal{
+                width:45%;
+                background-color:rgb(119, 173, 193);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                height:100%;
+            }
+
+            .image-menu-title-imagenes{
+                width:45%;
                 background-color:rgb(119, 173, 193);
                 border-radius: 5px;
                 display: flex;
                 align-items: center;
             }
-            
-            .image-menu-title h3{
+
+            .image-menu-title-imagenes h3{
                 text-align: center;
                 padding-left:10%;
                 color:white;
@@ -44,25 +60,20 @@ class ClientForm extends HTMLElement {
                 margin: 0;
             }
             
-            .image-input{
-                width:80%;
-                height:2.7rem;
-            }
-            
-            .image-input input{
-                width:99%;
-                height:95%;
-                border-style: none;
-                font-weight: 800;
+            .image-menu-title-principal h3{
+                text-align: center;
+                padding-left:15%;
+                color:white;
                 font-family: "Poppins", sans-serif;
-                overflow: visible;
-                font-size: 100%;
-                line-height: 1.15;
                 margin: 0;
+            }      
+
+            .image-menu-svg{
+                width:15%;
             }
             
-            .image-menu svg{
-                width:5%;
+            .image-menu-svg svg{
+                width:40%;
                 fill:rgb(119, 173, 193);
             }
             
@@ -117,14 +128,18 @@ class ClientForm extends HTMLElement {
         <form>
             <div class="image-menu">
                 <div class="image-menu-title">
-                    <h3>Principal</h3>
+                    <div class="image-menu-title-principal">
+                        <h3>Principal</h3>
+                    </div>
+                    <div class="image-menu-title-imagenes">
+                        <h3>Imágenes</h3>
+                    </div>
                 </div>
-                <div class="image-input">
-                    <input placeholder="Imágenes">
+                <div class="image-menu-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>broom</title><path d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>content-save</title><path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>broom</title><path d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>content-save</title><path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg>
             </div>
             <div class="form-row">
                 <div class="form-element">
