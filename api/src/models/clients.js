@@ -17,6 +17,24 @@ module.exports = function(sequelize, DataTypes) {
                 }
             }
         },
+        surname: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Por favor, rellena el campo "Apellidos".'
+                }
+            }
+        },
+        phoneNumber: {
+            type: DataTypes.STRING(10),
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Por favor, rellena el campo "Teléfono".'
+                }
+            }
+        },
         email: {
             type: DataTypes.STRING(255),
             allowNull: false,
@@ -33,13 +51,36 @@ module.exports = function(sequelize, DataTypes) {
                 }
             }
         },
-        password: {
+        population: {
             type: DataTypes.STRING(255),
-            allowNull: true
-        }
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Por favor, rellena el campo "Población".'
+                }
+            }
+        },
+        postalCode: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Por favor, rellena el campo "Código Postal".'
+                }
+            }
+        },
+        address: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Por favor, rellena el campo "Dirección".'
+                }
+            }
+        },
     }, {
         sequelize,
-        tableName: 'users',
+        tableName: 'clients',
         timestamps: true,
         paranoid: true,
         indexes: [

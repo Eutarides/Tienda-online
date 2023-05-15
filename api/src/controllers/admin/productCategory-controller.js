@@ -1,10 +1,10 @@
 const db = require("../../models");
-const Client = db.Client;
+const ProductCategory = db.ProductCategory;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
 
-    Client.create(req.body).then(data => {
+    ProductCategory.create(req.body).then(data => {
 
         res.status(200).send(data);
 
@@ -30,9 +30,9 @@ exports.findAll = (req, res) => {
     let whereStatement = {};
     let condition = Object.keys(whereStatement).length > 0 ? {[Op.and]: [whereStatement]} : {};
 
-    Client.findAndCountAll({
+    ProductCategory.findAndCountAll({
         where: condition, 
-        attributes: ['id', 'name', 'surname','phoneNumber','email','population','postalCode','address'],
+        attributes: ['id', 'name', 'visibility'],
         limit: limit,
         offset: offset,
         order: [['createdAt', 'DESC']]
@@ -58,7 +58,7 @@ exports.findOne = (req, res) => {
 
     const id = req.params.id;
 
-    Client.findByPk(id).then(data => {
+    ProductCategory.findByPk(id).then(data => {
 
         if (data) {
             res.status(200).send(data);
@@ -79,7 +79,7 @@ exports.update = (req, res) => {
 
     const id = req.params.id;
 
-    Client.update(req.body, {
+    ProductCategory.update(req.body, {
         where: { id: id }
     }).then(num => {
         if (num == 1) {
@@ -102,7 +102,7 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
 
-    Client.destroy({
+    ProductCategory.destroy({
         where: { id: id }
     }).then(num => {
         if (num == 1) {
