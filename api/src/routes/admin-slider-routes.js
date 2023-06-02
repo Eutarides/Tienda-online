@@ -20,3 +20,4 @@ module.exports = (app, upload) => {
   
     app.use('/api/admin/sliders', router);
   };
+    
