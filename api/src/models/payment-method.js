@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const PaymentMethod = sequelize.define('PaymentMethod', {
     id: {
       autoIncrement: true,
@@ -19,17 +19,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    deletedAt: {
-      type: DataTypes.DATE
     }
   }, {
     sequelize,
@@ -38,15 +27,21 @@ module.exports = function(sequelize, DataTypes) {
     paranoid: true,
     indexes: [
       {
-        name: "PRIMARY",
+        name: 'PRIMARY',
         unique: true,
-        using: "BTREE",
+        using: 'BTREE',
         fields: [
-            { name: "id" },
+          { name: 'id' }
         ]
       }
     ]
-  });
+  })
 
-  return PaymentMethod;
-};
+  PaymentMethod.associate = function (models) {
+    PaymentMethod.hasMany(models.Return, { as: 'returns', foreignKey: 'paymentMethodId' })
+    PaymentMethod.hasMany(models.SaleError, { as: 'saleErrors', foreignKey: 'paymentMethodId' })
+    PaymentMethod.hasMany(models.Sale, { as: 'sales', foreignKey: 'paymentMethodId' })
+  }
+
+  return PaymentMethod
+}

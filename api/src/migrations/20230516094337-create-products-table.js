@@ -1,23 +1,27 @@
-'use strict';
+'use strict'
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('social_networks', {
+    await queryInterface.createTable('products', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      productCategoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'product_categories',
+          key: 'id'
+        }
+      },
       name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      baseUrl: {
-        allowNull: false,
-        type: Sequelize.STRING
+      featured: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -30,10 +34,13 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('products', ['productCategoryId'],{
+      name: 'product_productCategoryId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('social_networks');
+    await queryInterface.dropTable('products')
   }
-};
+}

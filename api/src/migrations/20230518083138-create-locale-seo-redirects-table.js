@@ -1,32 +1,34 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('social_networks_employees', {
+    await queryInterface.createTable('locale_seo_redirects', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      socialNetworkId: {
-        allowNull: false,
+      localeSeoId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'SocialNetwork',
+          model: 'locale_seos',
           key: 'id'
         }
       },
-      employeeId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Employee',
-          key: 'id'
-        }
+      language: {
+        type: Sequelize.STRING
       },
-      user: {
-        allowNull: false,
+      group: {
+        type: Sequelize.STRING
+      },
+      key: {
+        type: Sequelize.STRING
+      },
+      subdomain: {
+        type: Sequelize.STRING
+      },
+      oldUrl: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -40,10 +42,13 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('locale_seo_redirects', ['localeSeoId'],{
+      name: 'localeSeoRedirect_localeSeoId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('social_networks_employees');
+    await queryInterface.dropTable('locale_seo_redirects')
   }
-};
+}

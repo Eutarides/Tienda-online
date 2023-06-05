@@ -1,29 +1,21 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('sent_emails', {
+    await queryInterface.createTable('faqs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      customerId: {
-        type: Sequelize.INTEGER,
+      name: {
         allowNull: false,
-        references: {
-          model: 'Customer',
-          key: 'id'
-        },
+        type: Sequelize.STRING
       },
-      emailId: {
+      order: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Email',
-          key: 'id'
-        },
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,
@@ -36,10 +28,10 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('sent_emails');
+    await queryInterface.dropTable('faqs')
   }
-};
+}

@@ -1,35 +1,22 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('locale_seo_redirects', {
+    await queryInterface.createTable('payment_methods', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      localeSeoId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'LocaleSeo',
-          key: 'id'
-        },
-      },
-      language: {
+      name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      group: {
-        type: Sequelize.STRING
-      },
-      key: {
-        type: Sequelize.STRING
-      },
-      subdomain: {
-        type: Sequelize.STRING
-      },
-      oldUrl: {
-        type: Sequelize.STRING
+      visible: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
       },
       createdAt: {
         allowNull: false,
@@ -42,10 +29,10 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('locale_seo_redirects');
+    await queryInterface.dropTable('payment_methods')
   }
-};
+}

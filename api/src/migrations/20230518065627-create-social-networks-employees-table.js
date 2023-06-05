@@ -1,49 +1,32 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('locale_seo_slugs', {
+    await queryInterface.createTable('social_networks_employees', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      language: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      relParent: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      slug: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      key: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      localeSeoId: {
+      socialNetworkId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'LocaleSeo',
+          model: 'social_networks',
           key: 'id'
-        },
+        }
       },
-      parentSlug: {
-        type: Sequelize.STRING
-      },
-      title: {
+      employeeId: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'employees',
+          key: 'id'
+        }
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      keywords: {
+      user: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -57,10 +40,16 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('social_networks_employees', ['socialNetworkId'],{
+      name: 'socialNetworksEmployee_socialNetworkId_fk'
+    }))
+    .then(() => queryInterface.addIndex('social_networks_employees', ['employeeId'],{
+      name: 'socialNetworksEmployee_employeeId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('locale_seo_slugs');
+    await queryInterface.dropTable('social_networks_employees')
   }
-};
+}

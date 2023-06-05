@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -12,23 +12,23 @@ module.exports = {
       cartId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Cart',
+          model: 'carts',
           key: 'id'
-        },
+        }
       },
       customerId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Customer',
+          model: 'customers',
           key: 'id'
-        },
+        }
       },
       paymentMethodId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'PaymentMethod',
+          model: 'payment_methods',
           key: 'id'
-        },
+        }
       },
       reference: {
         allowNull: false,
@@ -65,10 +65,19 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('sales', ['cartId'],{
+      name: 'sale_cartId_fk'
+    }))
+    .then(() => queryInterface.addIndex('sales', ['customerId'],{
+      name: 'sale_customerId_fk'
+    }))
+    .then(() => queryInterface.addIndex('sales', ['paymentMethodId'],{
+      name: 'sale_paymentMethodId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('sales');
+    await queryInterface.dropTable('sales')
   }
-};
+}

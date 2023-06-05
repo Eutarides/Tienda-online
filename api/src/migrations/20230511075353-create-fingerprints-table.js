@@ -1,29 +1,25 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('faqs', {
+    await queryInterface.createTable('fingerprints', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      customerId: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      title: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      description: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      order: {
         type: Sequelize.INTEGER,
-        defaultValue: 0
+        references: {
+          model: 'Customers',
+          key: 'id'
+        }
+      },
+      fingerprint: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -36,10 +32,13 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('fingerprints', ['customerId'],{
+      name: 'fingerprint_customerId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('faqs');
+    await queryInterface.dropTable('fingerprints')
   }
-};
+}

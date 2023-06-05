@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -13,30 +13,26 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Menu',
+          model: 'menus',
           key: 'id'
-        },
+        }
       },
       localeSeoId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'LocaleSeo',
+          model: 'locale_seos',
           key: 'id'
-        },
+        }
       },
       localeSlugSeoId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'LocaleSlugSeo',
+          model: 'locale_seo_slugs',
           key: 'id'
-        },
+        }
       },
       parentId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Parent',
-          key: 'id'
-        },
+        type: Sequelize.INTEGER
       },
       name: {
         allowNull: false,
@@ -67,10 +63,19 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       }
-    });
+    })
+    .then(() => queryInterface.addIndex('menu_items', ['menuId'],{
+      name: 'menuItem_menuId_fk'
+    }))
+    .then(() => queryInterface.addIndex('menu_items', ['localeSeoId'],{
+      name: 'menuItem_localeSeoId_fk'
+    }))
+    .then(() => queryInterface.addIndex('menu_items', ['localeSlugSeoId'],{
+      name: 'menuItem_localeSlugSeoId_fk'
+    }))
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('menu_items');
+    await queryInterface.dropTable('menu_items')
   }
-};
+}
