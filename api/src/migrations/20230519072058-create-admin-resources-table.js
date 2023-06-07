@@ -1,24 +1,25 @@
 'use strict'
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('languages', {
+    await queryInterface.createTable('admin_resources', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      url: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      alias: {
+      element: {
         allowNull: false,
-        unique: true,
         type: Sequelize.STRING
+      },
+      structure: {
+        allowNull: false,
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +36,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('languages')
+    await queryInterface.dropTable('admin_resources')
   }
 }

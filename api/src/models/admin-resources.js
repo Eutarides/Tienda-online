@@ -1,27 +1,26 @@
 module.exports = function (sequelize, DataTypes) {
-  const Faq = sequelize.define('Faq', {
+  const AdminResource = sequelize.define('AdminResource', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    name: {
-      allowNull: false,
+    url: {
       type: DataTypes.STRING,
-      validate: {
-        notNull: {
-          msg: 'Por favor, rellena el campo "Nombre".'
-        }
-      }
+      allowNull: false
     },
-    order: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
+    element: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    structure: {
+      type: DataTypes.JSON,
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'faqs',
+    tableName: 'admin_resources',
     timestamps: true,
     paranoid: true,
     indexes: [
@@ -36,9 +35,9 @@ module.exports = function (sequelize, DataTypes) {
     ]
   })
 
-  Faq.associate = function (models) {
-
+  AdminResource.associate = function (models) {
+    
   }
 
-  return Faq
+  return AdminResource
 }
