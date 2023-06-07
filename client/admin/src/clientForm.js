@@ -70,10 +70,20 @@ class ClientForm extends HTMLElement {
 
             .image-menu-svg{
                 width:15%;
+                display:flex;
             }
             
             .image-menu-svg svg{
                 width:40%;
+                fill:rgb(119, 173, 193);
+            }
+
+            .send-form-button{
+                width:40%;
+            }
+
+            .send-form-button svg{
+                width:100%;
                 fill:rgb(119, 173, 193);
             }
             
@@ -138,7 +148,7 @@ class ClientForm extends HTMLElement {
                 <div class="image-menu-svg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>broom</title><path d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>content-save</title><path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg>
+                    <div class="send-form-button"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>content-save</title><path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg></div>
                 </div>
             </div>
             <div class="form-row">
@@ -146,7 +156,7 @@ class ClientForm extends HTMLElement {
                     <div class="element-placeholder">
                         <p>Nombre de usuario</p>
                     </div>
-                    <input name="username" type="text">
+                    <input name="name" type="text">
                 </div>
                 <div class="form-element">
                     <div class="element-placeholder">
@@ -160,17 +170,45 @@ class ClientForm extends HTMLElement {
                     <div class="element-placeholder">
                         <p>Contraseña</p>
                     </div>
-                    <input name="password" type="text">
+                    <input name="password" type="password">
                 </div>
                 <div class="form-element">
                     <div class="element-placeholder">
                         <p>Confirma Contraseña</p>
                     </div>
-                    <input name="confirmPassword" type="text">
+                    <input name="confirmPassword" type="password">
                 </div>
             </div>
         </form>
         `;
+
+        let form = this.shadow.querySelector('form');
+        let sendFormButton = this.shadow.querySelector('.send-form-button');
+
+        sendFormButton.addEventListener('click', event => {
+
+            event.preventDefault();
+
+            let formData = new FormData(form);
+            let formDataJson = Object.fromEntries(formData.entries());
+
+            fetch('http://127.0.0.1:8080/api/admin/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataJson)
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                
+                console.log(data)
+        
+            }).catch(error => {
+                console.log(error);
+            });
+        });
+
 
     }
 }

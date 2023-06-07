@@ -11,33 +11,109 @@ class Login extends HTMLElement {
         this.shadow.innerHTML = 
         `
         <style>
-            .login{
-                width:40%;
-                height:60%;
-                display:flex;
-                flex-direction:column;
-                jutify-content:center;
-            }
-            .login-body{
-                width:60%;
-                height:40%;
-                flex-direction:column;
-                display:flex;
-            }
-            .login-title{
-                width:100%;
-                height:40%;
-            }
-            .login-title h2{
-                font-size:0.5rem;
-            }
-            .login-description{
-                width:100%;
-                height:40%;
-            }
-            .login-description h2{
-                font-size:0.5rem;
-            }
+        .login{
+            width:30%;
+            height:35rem;
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+            background-color:hsl(207, 76%, 53%);
+            justify-content:center;
+            margin-left:35%;
+            margin-right:35%;
+            border-radius: 20px;
+            gap:1rem;
+        }
+        .login-body{
+            width:60%;
+            height:30%;
+            flex-direction:column;
+            display:flex;
+            align-items: center;
+            gap:1.5rem;
+        }
+        .login-title{
+            width:100%;
+            height:40%;
+        }
+        .login-title h2{
+            font-size:2rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            background-color: hsl(194, 86%, 67%);
+            border-radius: 10px;
+            width:60%;
+            margin-left:20%;
+        }
+        .login-description{
+            width:50%;
+            height:40%;
+            margin-left:15%;
+            margin-right:15%;
+        }
+        .login-description h3{
+            font-size:1rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            background-color: hsl(194, 86%, 67%);
+            border-radius: 10px;
+        }
+        
+        .login-form{
+            width:50%;
+            height:40%;
+        }
+        
+        .login-form form{
+            width:100%;
+            height:100%;
+            gap:2rem;
+        }
+        .user-input input{
+            box-sizing: border-box;
+            width: 100%;
+            height:100%;
+            font-family: "Poppins", sans-serif;
+            overflow: visible;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+            margin-top:1.5rem;
+        }
+        
+        .password-input input{
+            box-sizing: border-box;
+            width: 100%;
+            height:100%;
+            font-family: "Poppins", sans-serif;
+            overflow: visible;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+            margin-top:1rem;
+        }
+        
+        .send-form-button{
+            width:40%;
+            height:20%;
+            margin-left:30%;
+            margin-right:30%;
+            margin-top:1rem;
+        }
+        
+        .send-form-button button{
+            height:100%;
+            width:100%;
+            border-radius: 10px;
+            border-width: 3px;
+            border-color: hsl(207, 76%, 53%);
+            font-family: "Poppins", sans-serif;
+            text-transform: none;
+            overflow: visible;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
 
         </style>
         <div class="login">
@@ -57,13 +133,46 @@ class Login extends HTMLElement {
                     <div class="password-input">
                         <input class="user-login" name="password" type="text" placeholder="contraseña">
                     </div>
-                    <div class="login_button">
+                    <div class="send-form-button">
                         <button>Login</button>
                     </div>
                 </form>
             </div>
         </div>
         `;
+
+        let form = document.getElementById('form');
+        let sendFormButton = document.getElementById('send-form-button');
+
+        sendFormButton.addEventListener('click', event => {
+
+            event.preventDefault();
+
+            let formData = new FormData(form);
+            let formDataJson = Object.fromEntries(formData.entries());
+
+            fetch('http://192.168.1.16:8080/api/admin/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': sessionStorage.getItem('accessToken')
+                },
+                body: JSON.stringify(formDataJson)
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                
+                document.dispatchEvent(new CustomEvent('message', {
+                    detail: {
+                        text: 'Formulario enviado correctamente',
+                        type: 'success'
+                    }
+                }));
+        
+            }).catch(error => {
+                console.log(error);
+            });
+        });
 
     }
 }
