@@ -94,6 +94,7 @@ class ClientForm extends HTMLElement {
                 justify-content: space-between;
                 gap: 1rem;
                 width: 100%;
+                margin-top:1rem;
             }
             
             .form-element{
@@ -202,7 +203,9 @@ class ClientForm extends HTMLElement {
                 return response.json();
             }).then(data => {
                 
-                console.log(data)
+                console.log(data);
+                const refreshEvent = new CustomEvent("refresh-table", {
+                  });
         
             }).catch(error => {
                 console.log(error);
