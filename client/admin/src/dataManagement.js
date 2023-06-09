@@ -45,6 +45,9 @@ class DataManagement extends HTMLElement {
             <div class="client-form">
                 <slot name="client-form"></slot>
             </div>
+            <div class="overlay">
+                <slot name="overlay"></slot>
+            </div>
         </div>
         `;
     }

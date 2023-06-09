@@ -6,6 +6,35 @@ class ClientForm extends HTMLElement {
         this.render();
     }
 
+    async connectedCallback () {
+        document.addEventListener('load-data',  async event => {    
+            this.id = event.detail.id;
+            await this.populateFormFields();
+        })
+
+        this.render()
+    }
+
+    async populateFormFields() {
+        if (!this.id) return;
+    
+        try {
+          const response = await fetch(`http://127.0.0.1:8080/api/admin/users/${this.id}`);
+          if (!response.ok) throw new Error('Failed to fetch data');
+    
+          const data = await response.json();
+          const { name, email } = data; // Assuming the response has `name` and `email` properties
+    
+          const nameInput = this.shadow.querySelector('input[name="name"]');
+          const emailInput = this.shadow.querySelector('input[name="email"]');
+    
+          nameInput.value = name;
+          emailInput.value = email;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
     render() {
 
         this.shadow.innerHTML = 
@@ -193,22 +222,58 @@ class ClientForm extends HTMLElement {
             let formData = new FormData(form);
             let formDataJson = Object.fromEntries(formData.entries());
 
-            fetch('http://127.0.0.1:8080/api/admin/users', {
+            fetch(`http://127.0.0.1:8080/api/admin/users/${this.id}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+            // If the record exists, update it
+            if (data) {
+                fetch(`http://127.0.0.1:8080/api/admin/users/${this.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataJson),
+                })
+                .then(response => response.json())
+                .then(updatedData => {
+                    console.log(updatedData);
+                    document.dispatchEvent(
+                    new CustomEvent('refresh-table')
+                    );
+                    form.reset();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            } else {
+                // If the record doesn't exist, create a new one
+                fetch('http://127.0.0.1:8080/api/admin/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formDataJson)
-            }).then(response => {
-                return response.json();
-            }).then(data => {
-                
-                console.log(data);
-                const refreshEvent = new CustomEvent("refresh-table", {
-                  });
-        
-            }).catch(error => {
-                console.log(error);
+                body: JSON.stringify(formDataJson),
+                })
+                .then(response => response.json())
+                .then(createdData => {
+                    console.log(createdData);
+                    document.dispatchEvent(
+                    new CustomEvent('refresh-table')
+                    );
+                    form.reset();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+            })
+            .catch(error => {
+            console.log(error);
             });
         });
 

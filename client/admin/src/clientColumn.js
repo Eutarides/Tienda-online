@@ -21,7 +21,6 @@ class ClientColumn extends HTMLElement {
     }
 
     async loadData(){
-
         await fetch('http://127.0.0.1:8080/api/admin/users')
         .then(response => {
             return response.json();
@@ -35,8 +34,6 @@ class ClientColumn extends HTMLElement {
         this.shadow.innerHTML = 
         `
         <style>
-
-
             .client-item-images svg{
                 width:100%;
                 fill:white;
@@ -53,6 +50,7 @@ class ClientColumn extends HTMLElement {
             .client-item{
                 width:90%;
                 height:30%;
+                margin-top:1rem;
             }
             
             .client-item-images{
@@ -116,7 +114,6 @@ class ClientColumn extends HTMLElement {
 
         this.data.rows.forEach(element=>{
 
-
         let table = this.shadow.querySelector(".table");
         let clientItem = document.createElement("div");
         clientItem.className = "client-item";
@@ -128,12 +125,14 @@ class ClientColumn extends HTMLElement {
         
         let editButton = document.createElement("div");
         editButton.classList.add("edit-button");
+        editButton.dataset.id = element.id;
         clientItemImages.appendChild(editButton);
         editButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>pencil</title><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
         </svg>`;
 
         let deleteButton = document.createElement("div");
         deleteButton.classList.add("delete-button");
+        deleteButton.dataset.id = element.id;
         clientItemImages.appendChild(deleteButton);
         deleteButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
         </svg>`;
@@ -151,6 +150,36 @@ class ClientColumn extends HTMLElement {
           }
 
         })
+
+        this.renderButtons()
+    }
+
+    renderButtons = async () => {
+             
+        let deleteButtons = this.shadow.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach((deleteButton)=>{
+            deleteButton.addEventListener('click', event =>{
+                document.dispatchEvent(new CustomEvent('open-overlay', {
+                    detail: {
+                        id: deleteButton.dataset.id
+                    }
+                }))
+            })
+        })
+
+
+        let editButtons = this.shadow.querySelectorAll('.edit-button');
+
+        editButtons.forEach((editButton)=>{
+            editButton.addEventListener('click', event =>{
+                document.dispatchEvent(new CustomEvent('load-data', {
+                    detail: {
+                        id: editButton.dataset.id
+                    }
+                }))
+            })
+        } )
     }
 }
 

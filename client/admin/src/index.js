@@ -6,3 +6,4 @@ import './filter.js';
 import './dataManagement.js';
 import './clientForm.js';
 import './clientColumn.js';
+import './overlay.js';
