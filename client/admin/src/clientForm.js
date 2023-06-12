@@ -223,6 +223,7 @@ class ClientForm extends HTMLElement {
             const id = form.elements.id.value
             const url = id ? `http://127.0.0.1:8080/api/admin/users/${id}`:`http://127.0.0.1:8080/api/admin/users`
             const method = id ? `PUT` : `POST`
+            delete formDataJson.id
 
             fetch(url, {
                 method: method,

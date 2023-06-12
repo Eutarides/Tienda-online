@@ -13,12 +13,12 @@ class DataManagement extends HTMLElement {
         <style>
             .data-management{
                 display:flex;
-                flex-direction:row;
                 justify-content:space-between;
-                height:70vh;
+                height:75vh;
                 width:90%;
                 margin-top: 2%;
                 margin-left:5%;
+                flex-wrap: wrap;
             }
             
             .client-column{
@@ -31,12 +31,21 @@ class DataManagement extends HTMLElement {
             }
 
             .client-form{
-                width:65%;
+                width:55%;
                 display:flex;
                 flex-direction: column;
                 justify-content: space-between;
                 height:100%;
             }
+
+            .button-menu{
+                position:relative;
+                bottom:10%;
+                left:10%;
+                width:40.5%;
+                display:center;
+            }
+
         </style>
         <div class="data-management">
             <div class="client-column">

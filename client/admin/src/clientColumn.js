@@ -2,8 +2,10 @@ class ClientColumn extends HTMLElement {
 
     constructor() {
         super();
-        this.shadow = this.attachShadow({mode: 'open'});
-        this.data = []
+        this.shadow = this.attachShadow({ mode: 'open' });
+        this.data = [];
+        this.currentPage = 1;
+        this.totalPages= null;
     }
 
     static get observedAttributes () { return ['url'] }
@@ -40,17 +42,16 @@ class ClientColumn extends HTMLElement {
             }
 
             .edit-button{
-                width:8%;
+                width:6%;
             }
 
             .delete-button{
-                width:8%;
+                width:6%;
             }
             
             .client-item{
                 width:90%;
-                height:30%;
-                margin-top:1rem;
+                margin-bottom:1rem;
             }
             
             .client-item-images{
@@ -65,7 +66,7 @@ class ClientColumn extends HTMLElement {
             
             .client-item-data{
                 height:65%;
-                width:90%;
+                width:100%;
                 background-color:rgb(96, 105, 201);
                 display: flex;
                 justify-content: space-between;
@@ -95,18 +96,71 @@ class ClientColumn extends HTMLElement {
 
             .client-item-data div{
                 width:95%;
-                height:30%;
+                height:50%;
                 flex-direction: column;
                 display: flex;
-                justify-content: space-between;
                 color:white;
                 font-size: 1.3rem;
                 font-family: "Poppins", sans-serif;
                 margin: 0;
             }
+
+            .button-menu{
+                width:100%;
+                height:10%;
+                backgroun-color:grey;
+                align-items:center;
+                display:flex;
+                justify-content:space-between;
+            }
+            ul {
+                display: flex;
+                gap: 2rem;
+                justify-content: space-between;
+                list-style: none;
+                padding-left: 0;
+            }
+            li {
+                display: list-item;
+                text-align: -webkit-match-parent;
+                font-family: "Poppins", sans-serif;
+                list-style: none;
+                padding-left: 0;
+                width:4vh;
+            }
+            input{
+                width:100%;
+                height:65%;
+                background-color: rgb(119, 173, 193);
+                color:white;
+                cursor: pointer;
+                border-radius:10px;
+                border:none;
+                font-size:1.3rem;
+            }
+            .page-counter{
+                width:100%;
+                justify-content
+            }
+            button{
+                width:100%;
+                height:50%;
+                background-color: rgb(119, 173, 193);
+                color:white;
+                cursor: pointer;
+                border-radius:10px;
+                border:none;
+                font-size:1.3rem;
+            }
+
+            .table{
+                height:100%;
+            }
         </style>
         
         <div class="table">
+        </div>
+        <div class="menu">
         </div>
         `;
 
@@ -137,8 +191,7 @@ class ClientColumn extends HTMLElement {
         
         let clientItemData = document.createElement("div");
         clientItemData.className = "client-item-data";
-        table.appendChild(clientItemData);
-
+        clientItem.appendChild(clientItemData);
 
 
 
@@ -151,6 +204,76 @@ class ClientColumn extends HTMLElement {
           }
 
         })
+
+        let menu = this.shadow.querySelector(".menu");
+
+        let buttonMenu = document.createElement("div");
+        buttonMenu.className = "button-menu";
+        menu.appendChild(buttonMenu);
+
+        let menuNav = document.createElement("nav");
+        buttonMenu.appendChild(menuNav);
+
+        let menuUl = document.createElement("ul");
+        menuNav.appendChild(menuUl);
+
+        let menuFirstLi = document.createElement("li");
+        menuFirstLi.className = "first-li";
+        menuUl.appendChild(menuFirstLi);
+
+        let menuFirstLiDiv = document.createElement("div");
+        menuFirstLiDiv.classname= "firs-li-button";
+        menuFirstLi.appendChild(menuFirstLiDiv);
+
+        let firstButton = document.createElement("button");
+        firstButton.textContent = "<<";
+        menuFirstLiDiv.appendChild(firstButton);
+
+        let menuPreviousLi = document.createElement("li");
+        menuPreviousLi.className = "previous-li";
+        menuUl.appendChild(menuPreviousLi);
+
+        let menuPreviousLiDiv = document.createElement("div");
+        menuPreviousLiDiv.classname= "previous-li-button";
+        menuPreviousLi.appendChild(menuPreviousLiDiv);
+
+        let previousButton = document.createElement("button");
+        previousButton.textContent = "<";
+        menuPreviousLiDiv.appendChild(previousButton);
+
+        let menuInputLi = document.createElement("li");
+        menuInputLi.className = "input-li";
+        menuUl.appendChild(menuInputLi);
+
+        let counter = document.createElement("input");
+        counter.className= "page-counter";
+        menuInputLi.appendChild(counter);
+
+        let menuNextLi = document.createElement("li");
+        menuNextLi.className = "next-li";
+        menuUl.appendChild(menuNextLi);
+
+        let menuNextLiDiv = document.createElement("div");
+        menuNextLiDiv.classname= "next-li-button";
+        menuNextLi.appendChild(menuNextLiDiv);
+
+        let nextButton = document.createElement("button");
+        nextButton.textContent = ">";
+        menuNextLiDiv.appendChild(nextButton);
+
+        let menuLastLi = document.createElement("li");
+        menuLastLi.className = "last-li";
+        menuUl.appendChild(menuLastLi);
+
+        let menuLastLiDiv = document.createElement("div");
+        menuLastLiDiv.classname= "last-li-button";
+        menuLastLi.appendChild(menuLastLiDiv);
+
+        let lastButton = document.createElement("button");
+        lastButton.textContent = ">";
+        menuLastLiDiv.appendChild(lastButton);
+
+        
 
         this.renderButtons()
     }
