@@ -110,8 +110,6 @@ class ClientColumn extends HTMLElement {
         </div>
         `;
 
-        console.log(this.data.rows)
-
         this.data.rows.forEach(element=>{
 
         let table = this.shadow.querySelector(".table");
@@ -140,6 +138,9 @@ class ClientColumn extends HTMLElement {
         let clientItemData = document.createElement("div");
         clientItemData.className = "client-item-data";
         table.appendChild(clientItemData);
+
+
+
 
         for (const [key, value] of Object.entries(element)) {
             if (key !== "id") {
