@@ -128,7 +128,7 @@ class Login extends HTMLElement {
             <div clas="login-form">
                 <form>
                     <div class="user-input">
-                        <input class="user-login" name="username" type="text" placeholder="nombre de usuario">
+                        <input class="user-login" name="email" type="email" placeholder="email">
                     </div>
                     <div class="password-input">
                         <input class="user-login" name="password" type="text" placeholder="contraseña">
@@ -141,8 +141,8 @@ class Login extends HTMLElement {
         </div>
         `;
 
-        let form = document.getElementById('form');
-        let sendFormButton = document.getElementById('send-form-button');
+        let form = this.shadow.querySelector('form');
+        let sendFormButton = this.shadow.querySelector('.send-form-button');
 
         sendFormButton.addEventListener('click', event => {
 
@@ -151,7 +151,7 @@ class Login extends HTMLElement {
             let formData = new FormData(form);
             let formDataJson = Object.fromEntries(formData.entries());
 
-            fetch('http://192.168.1.16:8080/api/admin/users', {
+            fetch(`http://127.0.0.1:8080/api/auth/users/signin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -161,14 +161,7 @@ class Login extends HTMLElement {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                
-                document.dispatchEvent(new CustomEvent('message', {
-                    detail: {
-                        text: 'Formulario enviado correctamente',
-                        type: 'success'
-                    }
-                }));
-        
+                console.log(data)
             }).catch(error => {
                 console.log(error);
             });

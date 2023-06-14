@@ -22,14 +22,48 @@ class ClientColumn extends HTMLElement {
         await this.render()
     }
 
-    async loadData(){
-        await fetch('http://127.0.0.1:8080/api/admin/users')
-        .then(response => {
-            return response.json();
-        }).then(data => {
-            this.data = data;
-        })
+    loadData = async () => {
+        try {
+            let response = await fetch(`http://127.0.0.1:8080/api/admin/users?page=${this.currentPage}`);
+            let data = await response.json();
+            this.data = data.rows;  
+            this.currentPage = data.meta.currentPage
+            this.totalPages = data.meta.pages
+            console.log(this.data) 
+        } catch (error) {
+            console.log(error);
+        }
     }
+
+    loadFirstPage = async () => {
+        this.currentPage = 1;
+        await this.loadData()
+        await this.render()
+    };
+
+    loadPrevPage = async () => {
+        if (this.currentPage > 1) {
+            this.currentPage = Number(this.currentPage) - 1;
+        
+            await this.loadData()
+            await this.render()
+        }
+    };
+
+    loadNextPage = async () => {
+        if (this.currentPage < this.totalPages) {
+            this.currentPage = Number(this.currentPage) + 1;
+            await this.loadData()
+            await this.render()
+        }
+    };
+    
+    loadLastPage = async () => {
+        this.currentPage = this.totalPages
+        console.log(this.currentPage)
+        await this.loadData()
+        await this.render()
+    };
 
     async render() {
 
@@ -113,6 +147,13 @@ class ClientColumn extends HTMLElement {
                 display:flex;
                 justify-content:space-between;
             }
+
+            .menu{
+                position:relative;
+                left:20%;
+                bottom:1
+            }
+
             ul {
                 display: flex;
                 gap: 2rem;
@@ -164,7 +205,7 @@ class ClientColumn extends HTMLElement {
         </div>
         `;
 
-        this.data.rows.forEach(element=>{
+        this.data.forEach(element=>{
 
         let table = this.shadow.querySelector(".table");
         let clientItem = document.createElement("div");
@@ -222,11 +263,12 @@ class ClientColumn extends HTMLElement {
         menuUl.appendChild(menuFirstLi);
 
         let menuFirstLiDiv = document.createElement("div");
-        menuFirstLiDiv.classname= "firs-li-button";
+        menuFirstLiDiv.className= "firs-li-button";
         menuFirstLi.appendChild(menuFirstLiDiv);
 
         let firstButton = document.createElement("button");
         firstButton.textContent = "<<";
+        firstButton.className= "first-button";
         menuFirstLiDiv.appendChild(firstButton);
 
         let menuPreviousLi = document.createElement("li");
@@ -234,11 +276,12 @@ class ClientColumn extends HTMLElement {
         menuUl.appendChild(menuPreviousLi);
 
         let menuPreviousLiDiv = document.createElement("div");
-        menuPreviousLiDiv.classname= "previous-li-button";
+        menuPreviousLiDiv.className= "previous-li-button";
         menuPreviousLi.appendChild(menuPreviousLiDiv);
 
         let previousButton = document.createElement("button");
         previousButton.textContent = "<";
+        previousButton.className= "previous-button";
         menuPreviousLiDiv.appendChild(previousButton);
 
         let menuInputLi = document.createElement("li");
@@ -254,11 +297,12 @@ class ClientColumn extends HTMLElement {
         menuUl.appendChild(menuNextLi);
 
         let menuNextLiDiv = document.createElement("div");
-        menuNextLiDiv.classname= "next-li-button";
+        menuNextLiDiv.className= "next-li-button";
         menuNextLi.appendChild(menuNextLiDiv);
 
         let nextButton = document.createElement("button");
         nextButton.textContent = ">";
+        nextButton.className= "next-button";
         menuNextLiDiv.appendChild(nextButton);
 
         let menuLastLi = document.createElement("li");
@@ -266,11 +310,12 @@ class ClientColumn extends HTMLElement {
         menuUl.appendChild(menuLastLi);
 
         let menuLastLiDiv = document.createElement("div");
-        menuLastLiDiv.classname= "last-li-button";
+        menuLastLiDiv.className= "last-li-button";
         menuLastLi.appendChild(menuLastLiDiv);
 
         let lastButton = document.createElement("button");
         lastButton.textContent = ">";
+        lastButton.className= "last-button";
         menuLastLiDiv.appendChild(lastButton);
 
         
@@ -303,7 +348,35 @@ class ClientColumn extends HTMLElement {
                     }
                 }))
             })
-        } )
+        })
+
+        let FirstButton = this.shadow.querySelector('.first-button');
+        FirstButton.addEventListener('click', () => this.loadFirstPage());
+
+        let PreviousButton = this.shadow.querySelector('.previous-button');
+        PreviousButton.addEventListener('click', () => this.loadPrevPage());
+
+        let NextButton = this.shadow.querySelector('.next-button');
+        NextButton.addEventListener('click', () => this.loadNextPage());
+
+        let LastButton = this.shadow.querySelector('.last-button');
+        LastButton.addEventListener('click', () => this.loadLastPage());
+
+        if (this.currentPage == 1) {
+            firstButton.classList.add('inactive');
+            previousButton.classList.add('inactive');
+        } else {
+            firstButton.classList.remove('inactive');
+            previousButton.classList.remove('inactive');
+        }
+
+        if (this.currentPage == this.totalPages || this.totalPages === 0) {
+            nextButton.classList.add('inactive');
+            lastButton.classList.add('inactive');
+        } else {
+            nextButton.classList.remove('inactive');
+            lastButton.classList.remove('inactive');
+        }
     }
 }
 
