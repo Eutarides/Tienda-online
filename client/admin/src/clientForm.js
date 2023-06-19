@@ -71,9 +71,26 @@ class ClientForm extends HTMLElement {
                 height:100%;
             }
 
+            .image-menu-title-principal.active{
+                background-color:rgb(54, 119, 143);
+                width:45%;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                height:100%;
+            }
+
             .image-menu-title-imagenes{
                 width:45%;
                 background-color:rgb(119, 173, 193);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            .image-menu-title-imagenes.active{
+                width:45%;
+                background-color:rgb(54, 119, 143);
                 border-radius: 5px;
                 display: flex;
                 align-items: center;
@@ -115,6 +132,16 @@ class ClientForm extends HTMLElement {
             }
             
             .form-row{
+                height:35%;
+                align-items:center;
+                justify-content: space-between;
+                gap: 1rem;
+                width: 100%;
+                margin-top:1rem;
+                display:none;
+            }
+
+            .form-row.active{
                 display: flex;
                 height:35%;
                 align-items:center;
@@ -131,7 +158,11 @@ class ClientForm extends HTMLElement {
                 align-items: center;
                 justify-content:center;
                 gap:1rem;
-                width: 100%;
+                width: 50%;
+            }
+
+            .url-element{
+                width:100%;
             }
             
             .element-placeholder{
@@ -160,16 +191,16 @@ class ClientForm extends HTMLElement {
                 font-size: 100%;
                 line-height: 1.15;
                 margin: 0;
-                background-color:rgb(96, 105, 201)
+                background-color:rgb(96, 105, 201);
             }
         </style>
         <form>
             <div class="image-menu">
                 <div class="image-menu-title">
-                    <div class="image-menu-title-principal">
+                    <div class="image-menu-title-principal active image-menu-button" data-value= "1">
                         <h3>Principal</h3>
                     </div>
-                    <div class="image-menu-title-imagenes">
+                    <div class="image-menu-title-imagenes image-menu-button" data-value= "2">
                         <h3>Imágenes</h3>
                     </div>
                 </div>
@@ -179,7 +210,7 @@ class ClientForm extends HTMLElement {
                     <div class="send-form-button"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>content-save</title><path d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg></div>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row active" data-value= "1">
                 <input name="id" type="hidden">
                 <div class="form-element">
                     <div class="element-placeholder">
@@ -194,7 +225,7 @@ class ClientForm extends HTMLElement {
                     <input name="email" type="text">
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row active" data-value= "1">
                 <div class="form-element">
                     <div class="element-placeholder">
                         <p>Contraseña</p>
@@ -206,6 +237,15 @@ class ClientForm extends HTMLElement {
                         <p>Confirma Contraseña</p>
                     </div>
                     <input name="confirmPassword" type="password">
+                </div>
+            </div>
+
+            <div class="form-row" data-value= "2">
+                <div class= "form-element url-element">
+                    <div class= "element-placeholder">
+                        <p>Url de la imagen</p>
+                    </div>
+                    <input name="url" type="password">
                 </div>
             </div>
         </form>
@@ -242,6 +282,27 @@ class ClientForm extends HTMLElement {
             });
 
         });
+
+        let imageButtons = this.shadow.querySelectorAll('.image-menu-button');
+        let formRows = this.shadow.querySelectorAll('.form-row');
+
+        imageButtons.forEach((imageButton) => {
+            imageButton.addEventListener('click', (event) => {
+                imageButtons.forEach((imageButton)=>{
+                    imageButton.classList.remove('active')
+                });
+                imageButton.classList.add('active');
+
+                formRows.forEach( formRow => {
+                    if (imageButton.dataset.value == formRow.dataset.value){
+                        formRow.classList.add('active');
+                    }else if(imageButton.dataset.value != formRow.dataset.value){
+                        formRow.classList.remove('active');
+                    }
+                })
+            });
+        });
+        
     }
 }
 
