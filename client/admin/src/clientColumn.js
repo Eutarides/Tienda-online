@@ -363,19 +363,19 @@ class ClientColumn extends HTMLElement {
         LastButton.addEventListener('click', () => this.loadLastPage());
 
         if (this.currentPage == 1) {
-            firstButton.classList.add('inactive');
-            previousButton.classList.add('inactive');
+            FirstButton.classList.add('inactive');
+            PreviousButton.classList.add('inactive');
         } else {
-            firstButton.classList.remove('inactive');
-            previousButton.classList.remove('inactive');
+            FirstButton.classList.remove('inactive');
+            PreviousButton.classList.remove('inactive');
         }
 
         if (this.currentPage == this.totalPages || this.totalPages === 0) {
-            nextButton.classList.add('inactive');
-            lastButton.classList.add('inactive');
+            NextButton.classList.add('inactive');
+            LastButton.classList.add('inactive');
         } else {
-            nextButton.classList.remove('inactive');
-            lastButton.classList.remove('inactive');
+            NextButton.classList.remove('inactive');
+            LastButton.classList.remove('inactive');
         }
     }
 }
