@@ -1,3 +1,5 @@
+import { API_URL } from '../config/config.js'
+
 class ClientForm extends HTMLElement {
 
     constructor() {
@@ -19,7 +21,7 @@ class ClientForm extends HTMLElement {
         if (!this.id) return;
     
         try {
-          const response = await fetch(`http://127.0.0.1:8080/api/admin/users/${this.id}`);
+          const response = await fetch(`${API_URL}/api/admin/users/${this.id}`);
           if (!response.ok) throw new Error('Failed to fetch data');
     
           const data = await response.json();
