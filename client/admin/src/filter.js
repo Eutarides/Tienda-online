@@ -1,3 +1,5 @@
+import { API_URL } from '../config/config.js'
+
 class Filter extends HTMLElement {
 
     constructor() {
@@ -161,7 +163,7 @@ class Filter extends HTMLElement {
             filterSVG.classList.toggle('active');
 
             let formData = Object.fromEntries(new FormData(filterForm));
-            let URL = "http://localhost:8080/api/admin"
+            let URL = "${API_URL}/api/admin"
             let params = new URLSearchParams(formData);
 
             fetch(`${URL}/users?${params}`)

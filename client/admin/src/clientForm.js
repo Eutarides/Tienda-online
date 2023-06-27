@@ -264,7 +264,7 @@ class ClientForm extends HTMLElement {
             let formData = new FormData(form);
             let formDataJson = Object.fromEntries(formData.entries());
             const id = form.elements.id.value
-            const url = id ? `http://127.0.0.1:8080/api/admin/users/${id}`:`http://127.0.0.1:8080/api/admin/users`
+            const url = id ? `${API_URL}/api/admin/users/${id}`:`${API_URL}/api/admin/users`
             const method = id ? `PUT` : `POST`
             delete formDataJson.id
 
