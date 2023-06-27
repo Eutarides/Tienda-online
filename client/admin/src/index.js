@@ -7,3 +7,4 @@ import './dataManagement.js';
 import './clientForm.js';
 import './clientColumn.js';
 import './overlay.js';
+import './modalOverlay.js';

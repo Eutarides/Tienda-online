@@ -48,7 +48,7 @@ class Filter extends HTMLElement {
                 fill:hsl(120, 59%, 41%);
             }
 
-            .filter-inputs{
+            .filter-form{
                 width:90%;
                 height:50%;
                 display:flex;
@@ -56,7 +56,7 @@ class Filter extends HTMLElement {
                 display:none;
             }
 
-            .filter-inputs.active{
+            .filter-form.active{
                 width:90%;
                 height:50%;
                 display:flex;
@@ -127,26 +127,23 @@ class Filter extends HTMLElement {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>filter-menu</title><path d="M11 11L16.76 3.62A1 1 0 0 0 16.59 2.22A1 1 0 0 0 16 2H2A1 1 0 0 0 1.38 2.22A1 1 0 0 0 1.21 3.62L7 11V16.87A1 1 0 0 0 7.29 17.7L9.29 19.7A1 1 0 0 0 10.7 19.7A1 1 0 0 0 11 18.87V11M13 16L18 21L23 16Z" />
                 </svg>
             </div>
-            <form class="filter-inputs active">
+            <form class="filter-form active">
                 <div class="input-title">
                     <p>Id</p>
                     <div class="input-row">
                         <input name="id" type="text" class="id-input active">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
                     </div>
                 </div>
                 <div class="input-title">
                     <p>Name</p>
                     <div class="input-row">
-                        <input name="username" type="text" class="name-input active">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+                        <input name="name" type="text" class="name-input active">
                     </div>
                 </div>
                 <div class="input-title">
                     <p>Email</p>
                     <div class="input-row">
                         <input name="email" type="text" class="email-input active">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
                     </div>
                 </div>
             </form>
@@ -155,28 +152,38 @@ class Filter extends HTMLElement {
 
         let filterSvg = this.shadow.querySelector('.filter-svg');
         let filter = this.shadow.querySelector('.filter');
-        let filterInputs = this.shadow.querySelector('.filter-inputs');
+        let filterForm = this.shadow.querySelector('.filter-form');
         let filterSVG = this.shadow.querySelector('svg');
 
         filterSvg.addEventListener('click', function() {
             filter.classList.toggle('active');
-            filterInputs.classList.toggle('active');
+            filterForm.classList.toggle('active');
             filterSVG.classList.toggle('active');
-            const form = document.querySelector('.filter-inputs');
 
-            const formData = new FormData(form);
+            let formData = Object.fromEntries(new FormData(filterForm));
+            let URL = "http://localhost:8080/api/admin"
+            let params = new URLSearchParams(formData);
 
-            const url = new URL('http://127.0.0.1:8080/api/admin/users');
-            url.search = new URLSearchParams(formData).toString();
-
-            fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            fetch(`${URL}/users?${params}`)
+                .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Error: " + response.status);
+                }
+                })
+                .then((data) => {
+                    const event = new CustomEvent("filter-results", {
+                        detail: {
+                        data: data,
+                        },
+                    });
+                    document.dispatchEvent(event);
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+            
         });
 
 

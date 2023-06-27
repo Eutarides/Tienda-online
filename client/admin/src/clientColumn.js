@@ -14,7 +14,16 @@ class ClientColumn extends HTMLElement {
         document.addEventListener('refresh-table',  async () => {
             await this.loadData()
             await this.render()
-        })
+        });
+
+        document.addEventListener("filter-results", (event) => {
+            const filteredData = event.detail.data;
+            this.data = filteredData.rows;
+            this.currentPage = filteredData.meta.currentPage;
+            this.totalPages = filteredData.meta.pages;
+      
+            this.render();
+        });
     }
 
     async attributeChangedCallback (name, oldValue, newValue) {
