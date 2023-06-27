@@ -1,3 +1,5 @@
+import { API_URL } from '../config/config.js'
+
 class Login extends HTMLElement {
 
     constructor() {
@@ -151,7 +153,7 @@ class Login extends HTMLElement {
             let formData = new FormData(form);
             let formDataJson = Object.fromEntries(formData.entries());
 
-            fetch(`http://127.0.0.1:8080/api/auth/users/signin`, {
+            fetch(`${API_URL}/api/auth/users/signin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
