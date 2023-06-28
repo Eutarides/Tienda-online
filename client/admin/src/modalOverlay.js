@@ -1,3 +1,5 @@
+import { API_URL } from '../config/config.js'
+
 class ModalOverlay extends HTMLElement {
 
     constructor() {
@@ -10,7 +12,6 @@ class ModalOverlay extends HTMLElement {
             const overlay = this.shadow.querySelector('.overlay');
             overlay.classList.toggle('active');
             
-            this.id = event.detail.id;
         })
 
         this.render()
@@ -131,12 +132,18 @@ class ModalOverlay extends HTMLElement {
                 font-size:1.3rem;
             }
 
+            .overlay-menu svg{
+                margin-left:50%;
+                width:10%;
+            }
+
 
         </style>
         <div class="overlay">
             <div class="overlay-menu">
                 <button class="overlay-button active" data-value="1">Imágenes</button>
                 <button class="overlay-button" data-value="2">Comodín</button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
             </div>
             <div class="image-overlay row active" data-value="1">
                 <div class="image-overlay-title">
@@ -176,6 +183,35 @@ class ModalOverlay extends HTMLElement {
                 })
             });
         });
+
+        let closeButton = this.shadow.querySelector(".overlay-menu svg");
+        let overlay = this.shadow.querySelector(".overlay");
+
+        closeButton.addEventListener('click', (event) => {
+            overlay.classList.remove('active')
+        });
+
+
+        let addFile = this.shadow.querySelector(".image-overlay-svg svg");
+
+        addFile.addEventListener('change', (event)=>{
+            event.preventDefault();
+            let file = event.target.files[0];
+            let formData = new FormData();
+            formData.append('file',file);
+
+            fetch(`${API_URL}/api/admin/images`, {
+                headers: {
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
+                },
+                method: 'POST',
+                body: formData,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            });
+        })
     }
     
 }

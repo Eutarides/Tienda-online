@@ -165,6 +165,8 @@ class ClientForm extends HTMLElement {
 
             .url-element{
                 width:100%;
+                position:relative;
+                right:45%;
             }
             
             .element-placeholder{
@@ -198,6 +200,7 @@ class ClientForm extends HTMLElement {
 
             .url-element svg{
                 width:10%;
+                fill: rgb(119, 173, 193);
             }
         </style>
         <form>
@@ -272,6 +275,7 @@ class ClientForm extends HTMLElement {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(formDataJson),
                 })
@@ -305,6 +309,12 @@ class ClientForm extends HTMLElement {
                 })
             });
         });
+
+        let imageSVG = this.shadow.querySelector(".url-element svg");
+
+        imageSVG.addEventListener('click', (event) => {
+            document.dispatchEvent(new CustomEvent('open-modal-overlay'))
+        })
         
     }
 }

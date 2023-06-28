@@ -124,12 +124,12 @@ class Filter extends HTMLElement {
                 width:13%;
             }
         </style>
-        <div class="filter active">
+        <div class="filter">
             <div class= "filter-svg">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>filter-menu</title><path d="M11 11L16.76 3.62A1 1 0 0 0 16.59 2.22A1 1 0 0 0 16 2H2A1 1 0 0 0 1.38 2.22A1 1 0 0 0 1.21 3.62L7 11V16.87A1 1 0 0 0 7.29 17.7L9.29 19.7A1 1 0 0 0 10.7 19.7A1 1 0 0 0 11 18.87V11M13 16L18 21L23 16Z" />
                 </svg>
             </div>
-            <form class="filter-form active">
+            <form class="filter-form">
                 <div class="input-title">
                     <p>Id</p>
                     <div class="input-row">
@@ -166,7 +166,12 @@ class Filter extends HTMLElement {
             let URL = "${API_URL}/api/admin"
             let params = new URLSearchParams(formData);
 
-            fetch(`${URL}/users?${params}`)
+            fetch(`${URL}/users?${params}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
+                },
+            })
                 .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -188,38 +193,6 @@ class Filter extends HTMLElement {
             
         });
 
-
-
-
-        // let inputRows = this.shadow.querySelectorAll('.input-row');
-        // inputRows.forEach(inputRow => {
-        //     let searchIcon = inputRow.querySelector('.search-icon');
-        //     searchIcon.addEventListener('click', () => {
-        //         let input = inputRow.querySelector('input').value;
-        //         let fieldName = inputRow.parentNode.querySelector('p').textContent.toLowerCase();
-        //         let url;
-                
-        //         if (fieldName === 'id') {
-        //             url = `http://127.0.0.1:8080/api/admin/users/${input}`;
-        //         } else if (fieldName === 'name') {
-        //             url = `http://127.0.0.1:8080/api/admin/users?name=${input}`;
-        //         } else if (fieldName === 'email') {
-        //             url = `http://127.0.0.1:8080/api/admin/users?email=${input}`;
-        //         }
-                
-        //         fetch(url)
-        //             .then(response => {
-        //                 response.json();
-        //                 console.log(response);
-        //             })
-        //             .then(data => {
-        //                 console.log(data);
-        //             })
-        //             .catch(error => {
-        //                 console.error(error);
-        //             });
-        //     });
-        // });
 
     }
 }

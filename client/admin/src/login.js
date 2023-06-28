@@ -157,13 +157,14 @@ class Login extends HTMLElement {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-access-token': sessionStorage.getItem('accessToken')
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(formDataJson)
             }).then(response => {
                 return response.json();
             }).then(data => {
-                console.log(data)
+                sessionStorage.setItem('accessToken' , data.accessToken)
+                window.location.replace('http://127.0.0.1:5500/client/admin/admin.html');
             }).catch(error => {
                 console.log(error);
             });

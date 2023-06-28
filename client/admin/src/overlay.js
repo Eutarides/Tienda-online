@@ -140,8 +140,9 @@ class Overlay extends HTMLElement {
             fetch(`http://127.0.0.1:8080/api${this.getAttribute('url')}/${this.id}`, {
                 method: 'DELETE',
                 headers: {
-
-                }
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
+                },
             }).then(response => {
                 if (response.ok) {
                     console.log('Registro eliminado con éxito');

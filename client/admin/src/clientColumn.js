@@ -35,7 +35,12 @@ class ClientColumn extends HTMLElement {
 
     loadData = async () => {
         try {
-            let response = await fetch(`${API_URL}/api/admin/users?page=${this.currentPage}`);
+            let response = await fetch(`${API_URL}/api/admin/users?page=${this.currentPage}`,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
+                },
+            });
             let data = await response.json();
             this.data = data.rows;  
             this.currentPage = data.meta.currentPage
