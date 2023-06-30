@@ -11,8 +11,12 @@ module.exports = (app, upload) => {
         );
         next();
     });
+
+    const uploadFields = upload.fields([
+      { name: 'file', maxCount: 1 }
+    ])
   
-    router.post("/",[authJwt.verifyUserToken], controller.create);
+    router.post("/",[authJwt.verifyUserToken, uploadFields], controller.create);
     router.get("/",[authJwt.verifyUserToken], controller.findAll);  
     router.get("/:id",[authJwt.verifyUserToken], controller.findOne);  
     router.put("/:id",[authJwt.verifyUserToken], controller.update);  

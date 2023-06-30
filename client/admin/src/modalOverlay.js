@@ -192,14 +192,15 @@ class ModalOverlay extends HTMLElement {
         });
 
 
-        let addFile = this.shadow.querySelector(".image-overlay-svg svg");
+        let addFile = this.shadow.querySelector("#file-input");
 
         addFile.addEventListener('change', (event)=>{
             event.preventDefault();
             let file = event.target.files[0];
+            console.log(file)
             let formData = new FormData();
             formData.append('file',file);
-
+            
             fetch(`${API_URL}/api/admin/images`, {
                 headers: {
                     'Authorization': `Bearer ${sessionStorage.getItem('accessToken')}`
