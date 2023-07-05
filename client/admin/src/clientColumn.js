@@ -44,8 +44,7 @@ class ClientColumn extends HTMLElement {
             let data = await response.json();
             this.data = data.rows;  
             this.currentPage = data.meta.currentPage
-            this.totalPages = data.meta.pages
-            console.log(this.data) 
+            this.totalPages = data.meta.pages 
         } catch (error) {
             console.log(error);
         }

@@ -11,18 +11,28 @@ module.exports = class ImageService {
 
     for (const image of images.file) {
         let filename = image.originalname.replace(/[_\s]+/g, '-');
-        console.log(filename);
-    }
 
-    resizeImages = async (entity, entityId, images) => {
+        const tmpPath = path.resolve(image.path);
+        const name = path.parse(filename).name
+        const originalImagePath = path.join(__dirname, '../storage/images/gallery/original', `${name}.webp`);
 
-    }
 
-    deleteImages = async filename => {
+        await sharp(tmpPath)
+        .webp({losless:true})
+        .toFile(originalImagePath);
 
-    }
+    };
+  }
 
-    getThumbnails = async (limit, offset) => {
+  resizeImages = async (entity, entityId, images) => {
 
-    }
-}}
+  }
+
+  deleteImages = async filename => {
+
+  }
+
+  getThumbnails = async (limit, offset) => {
+
+  }
+}
