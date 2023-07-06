@@ -86,25 +86,25 @@ class ModalOverlay extends HTMLElement {
                 padding-left:2rem;
             }
 
-            .variety-overlay{
+            .gallery-overlay{
                 height:70%;
                 display:flex;
                 justify-content:space-between;
                 display:none;
             }
 
-            .variety-overlay.active{
+            .gallery-overlay.active{
                 height:70%;
                 display:flex;
                 justify-content:space-between;
                 display:none;
             }
 
-            .variety-overlay-title{
+            .gallery-overlay-title{
                 height:20%;
             }
 
-            .variety-overlay-title p{
+            .gallery-overlay-title p{
                 font-size: 1.3rem;
                 font-family: "Poppins", sans-serif;
                 margin: 0;
@@ -137,12 +137,17 @@ class ModalOverlay extends HTMLElement {
                 width:10%;
             }
 
+            .image{
+                width:15%;
+                height:15%:
+            }
+
 
         </style>
         <div class="overlay">
             <div class="overlay-menu">
                 <button class="overlay-button active" data-value="1">Imágenes</button>
-                <button class="overlay-button" data-value="2">Comodín</button>
+                <button class="overlay-button" data-value="2">Galería</button>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close</title><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
             </div>
             <div class="image-overlay row active" data-value="1">
@@ -156,13 +161,22 @@ class ModalOverlay extends HTMLElement {
                     </label>                
                 </div>
             </div>
-            <div class="variety-overlay row" data-value="2">
-                <div class="variety-overlay-title">
-                    <p>Selecciona un comodín</p>
-                </div>
+            <div class="gallery-overlay row" data-value="2">
             </div>
         </div>
         `;
+
+        this.data.forEach(element=>{
+
+            let gallery = this.shadow.querySelector('.gallery-overlay');
+            let imageDiv = document.createElement("div");
+            imageDiv.classname= "image";
+            gallery.appendChild(imageDiv);
+
+            let image = document.createElement("img");
+            imageDiv.appendChild(image);
+
+        })
         
         let overlayButtons = this.shadow.querySelectorAll(".overlay-button");
         let rows = this.shadow.querySelectorAll(".row");
@@ -197,7 +211,6 @@ class ModalOverlay extends HTMLElement {
         addFile.addEventListener('change', (event)=>{
             event.preventDefault();
             let file = event.target.files[0];
-            console.log(file)
             let formData = new FormData();
             formData.append('file',file);
             
@@ -210,8 +223,11 @@ class ModalOverlay extends HTMLElement {
             })
             .then((response) => response.json())
             .then((data) => {
+
                 console.log(data)
             });
+
+            overlay.classList.remove("active");
         })
     }
     

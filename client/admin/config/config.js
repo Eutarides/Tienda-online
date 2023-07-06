@@ -1,1 +1,1 @@
-export const API_URL = 'https://javiercarma.com'
+export const API_URL = 'http://localhost:8080'
