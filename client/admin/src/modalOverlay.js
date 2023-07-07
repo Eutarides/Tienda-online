@@ -35,15 +35,15 @@ class ModalOverlay extends HTMLElement {
             }
             
             .overlay.active{
-                height: 60vh;
+                height: 80vh;
                 position: fixed;
                 top: 0;
-                width: 90vh;
+                width: 110vh;
                 z-index: 3000;
                 display: block;
                 background-color: hsl(194, 68%, 71%);
-                right:25%;
-                top:15%;
+                right:20%;
+                top:5%;
                 border-radius:10px;
             }
 
@@ -87,27 +87,19 @@ class ModalOverlay extends HTMLElement {
             }
 
             .gallery-overlay{
-                height:70%;
+                height:80%;
                 display:flex;
                 justify-content:space-between;
                 display:none;
+                position:relative;
             }
 
             .gallery-overlay.active{
-                height:70%;
+                height:80%;
                 display:flex;
                 justify-content:space-between;
-                display:none;
-            }
-
-            .gallery-overlay-title{
-                height:20%;
-            }
-
-            .gallery-overlay-title p{
-                font-size: 1.3rem;
-                font-family: "Poppins", sans-serif;
-                margin: 0;
+                display: block;
+                position:relative;
             }
 
             .overlay-button{
@@ -138,8 +130,46 @@ class ModalOverlay extends HTMLElement {
             }
 
             .image{
-                width:15%;
-                height:15%:
+                width:80%;
+                height:80%:
+            }
+
+            .gallery-overlay-menu{
+                width:20%;
+                right:5%;
+                top:10%;
+                position:absolute;
+            }
+
+            .gallery-overlay-menu p{
+                text-align:center;
+                font-family: "Poppins", sans-serif;
+                font-size:1.3rem;
+            }
+
+            .gallery-overlay input{
+                width:100%;
+                border-radius:7px;
+                border-style: none;
+                height:1.5rem;
+            }
+
+            .img.selected{
+                border: 2px hsl(84, 71%, 46%);
+            }
+
+            .gallery-overlay button{
+                bottom:0%;
+                right:5%;
+                width:20%;
+                height:10%;
+                background-color: rgb(119, 173, 193);
+                color:white;
+                cursor: pointer;
+                border-radius:10px;
+                border:none;
+                font-size:1.3rem;
+                position:absolute;
             }
 
 
@@ -162,21 +192,16 @@ class ModalOverlay extends HTMLElement {
                 </div>
             </div>
             <div class="gallery-overlay row" data-value="2">
+                <div class="gallery-overlay-menu">
+                    <p>Título</p>
+                    <input class="title"></input>
+                    <p>Texto alternativo</p>
+                    <input class="alt"></input>
+                </div>
+                <button>Elegir imagen</button>
             </div>
         </div>
         `;
-
-        this.data.forEach(element=>{
-
-            let gallery = this.shadow.querySelector('.gallery-overlay');
-            let imageDiv = document.createElement("div");
-            imageDiv.classname= "image";
-            gallery.appendChild(imageDiv);
-
-            let image = document.createElement("img");
-            imageDiv.appendChild(image);
-
-        })
         
         let overlayButtons = this.shadow.querySelectorAll(".overlay-button");
         let rows = this.shadow.querySelectorAll(".row");
@@ -202,7 +227,7 @@ class ModalOverlay extends HTMLElement {
         let overlay = this.shadow.querySelector(".overlay");
 
         closeButton.addEventListener('click', (event) => {
-            overlay.classList.remove('active')
+            overlay.classList.remove('active');
         });
 
 
@@ -225,9 +250,39 @@ class ModalOverlay extends HTMLElement {
             .then((data) => {
 
                 console.log(data)
+
+                data.forEach(element=>{
+
+                    let gallery = this.shadow.querySelector('.gallery-overlay');
+                    let imageDiv = document.createElement("div");
+                    imageDiv.classname= "image";
+                    gallery.appendChild(imageDiv);
+        
+                    let image = document.createElement("img");
+                    image.classname= "selected";
+                    image.dataset.src = "/api/src/storage/images/gallery/thumbnail/:filename";
+                    image.setAttribute('src', `/api/src/storage/images/gallery/thumbnail/:filename`)
+                    imageDiv.appendChild(image);
+        
+                })
             });
 
-            overlay.classList.remove("active");
+        })
+
+        let searchButton = this.shadow.querySelector(".gallery-overlay button")
+        searchButton.addEventListener('click', ()=>{
+            const selectedImage = gallery.querySelector('.selected');
+            const src = selectedImage.getAttribute('src');
+            
+            const titleInput = gallery.querySelector('.title');
+            const title = titleInput.value;
+            
+            const altInput = gallery.querySelector('.alt');
+            const alt = altInput.value;
+            
+            console.log('SRC:', src);
+            console.log('Title:', title);
+            console.log('Alt:', alt);
         })
     }
     

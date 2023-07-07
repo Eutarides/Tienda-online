@@ -51,7 +51,16 @@ exports.findOne = (req, res) => {
 
     const filename = req.params.filename;
 
-   
+    const options = {
+        root: __dirname + '../../../storage/images/gallery/thumbnail/',
+        dotfiles: 'deny',
+        headers: {
+          'x-timestamp': Date.now(),
+          'x-sent': true
+        }
+      }
+    
+      res.sendFile(fileName, options)
 };
 
 exports.update = (req, res) => {
