@@ -260,8 +260,8 @@ class ModalOverlay extends HTMLElement {
         
                     let image = document.createElement("img");
                     image.classname= "selected";
-                    image.dataset.src = "/api/src/storage/images/gallery/thumbnail/:filename";
-                    image.setAttribute('src', `/api/src/storage/images/gallery/thumbnail/:filename`)
+                    image.dataset.src = `${API_URL}/api/admin/images/${filename}`;
+                    image.setAttribute('src', `${API_URL}/api/admin/images/${filename}`)
                     imageDiv.appendChild(image);
         
                 })
@@ -271,18 +271,34 @@ class ModalOverlay extends HTMLElement {
 
         let searchButton = this.shadow.querySelector(".gallery-overlay button")
         searchButton.addEventListener('click', ()=>{
-            const selectedImage = gallery.querySelector('.selected');
+            const selectedImage = this.shadow.querySelector('.gallery-overlay selected');
             const src = selectedImage.getAttribute('src');
             
-            const titleInput = gallery.querySelector('.title');
+            const titleInput = this.shadow.querySelector('.gallery-overlay-menu title');
             const title = titleInput.value;
             
-            const altInput = gallery.querySelector('.alt');
+            const altInput = this.shadow.querySelector('.gallery-overlay-menu alt');
             const alt = altInput.value;
             
-            console.log('SRC:', src);
-            console.log('Title:', title);
-            console.log('Alt:', alt);
+            const data = {
+                src: src,
+                title: title,
+                alt: alt
+            };
+
+            const jsonData = JSON.stringify(data);
+            console.log(jsonData);
+
+            const eventData = {
+                detail: {
+                  jsonData: jsonData
+                }
+            };
+
+
+            const customEvent = new CustomEvent('data-selected', eventData);
+
+            this.dispatchEvent(customEvent);
         })
     }
     

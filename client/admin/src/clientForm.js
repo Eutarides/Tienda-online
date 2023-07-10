@@ -6,12 +6,19 @@ class ClientForm extends HTMLElement {
         super();
         this.shadow = this.attachShadow({mode: 'open'});
         this.render();
+        this.images = [];
     }
 
     async connectedCallback () {
         document.addEventListener('load-data',  async event => {    
             this.id = event.detail.id;
             await this.populateFormFields();
+        })
+
+        document.addEventListener('data-selected', async event =>{
+            const jsonData = event.detail.jsonData;
+            const imageObj = JSON.parse(jsonData);
+            this.images.push(imageObj);
         })
 
         this.render()
@@ -270,6 +277,10 @@ class ClientForm extends HTMLElement {
             const url = id ? `${API_URL}/api/admin/users/${id}`:`${API_URL}/api/admin/users`
             const method = id ? `PUT` : `POST`
             delete formDataJson.id
+
+            if(this.images){
+                formDataJson.images = this.images;
+            }
 
             fetch(url, {
                 method: method,
