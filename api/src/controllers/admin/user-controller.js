@@ -1,3 +1,4 @@
+const TrackingService = require('../../services/tracking-service');
 const db = require("../../models");
 const User = db.User;
 const Op = db.Sequelize.Op;
@@ -5,12 +6,17 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
 
     User.create(req.body).then(data => {
+        const trackingService = new TrackingService();
+        let userId = req.userId;
+
+        trackingService.logFetch(userId, req.ip, '/users', 'POST', 200)
 
         res.status(200).send(data);
 
     }).catch(err => {
 
         res.status(500).send({
+
             message: err.errors || "Algún error ha surgido al insertar el dato."
         });
     });
@@ -40,12 +46,14 @@ exports.findAll = (req, res) => {
         order: [['createdAt', 'DESC']]
     })
     .then(result => {
+        let userId = req.userId;
 
         result.meta = {
             total: result.count,
             pages: Math.ceil(result.count / limit),
             currentPage: page
         };
+        new TrackingService().logFetch(userId, req.ip, '/users', 'GET', 200)
 
         res.status(200).send(result);
 
@@ -63,6 +71,10 @@ exports.findOne = (req, res) => {
     User.findByPk(id, {
         attributes: ['id', 'name', 'email'],
     }).then(data => {
+        const trackingService = new TrackingService();
+        let userId = req.userId;
+
+        trackingService.logFetch(userId, req.ip, `/users/${id}`, 'GET', 200);
 
         if (data) {
             res.status(200).send(data);
@@ -86,6 +98,11 @@ exports.update = (req, res) => {
     User.update(req.body, {
         where: { id: id }
     }).then(num => {
+        const trackingService = new TrackingService();
+        let userId = req.userId;
+
+        trackingService.logFetch(userId, req.ip, `/users/${id}`, 'PUT', 200)
+
         if (num == 1) {
             res.status(200).send({
                 message: "El elemento ha sido actualizado correctamente."
@@ -109,6 +126,11 @@ exports.delete = (req, res) => {
     User.destroy({
         where: { id: id }
     }).then(num => {
+        const trackingService = new TrackingService();
+        let userId = req.userId;
+
+        trackingService.logFetch(userId, req.ip, `/users/${id}`, 'DELETE', 200)
+
         if (num == 1) {
             res.status(200).send({
                 message: "El elemento ha sido borrado correctamente"
