@@ -9,7 +9,7 @@ class ContactForm extends HTMLElement {
     render() {
 
         this.shadow.innerHTML = 
-        `
+        html`
         <style>
             .form{
                 height:100%;
