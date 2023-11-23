@@ -1,5 +1,6 @@
 body{
     background-color:rgb(66, 66, 223) ;
+    position:relative;
 }
 
 header{
@@ -92,6 +93,10 @@ header{
     -webkit-transform: translateY(-0.32rem) translateX(0px) rotate(-45deg);
     -moz-transform: translateY(-0.65rem) translateX(0) rotate(-45deg);
     top: 40%;
+}
+
+.hamburger.active{
+    z-index:1000;
 }
 
 .main{
@@ -786,4 +791,15 @@ button{
 .url-element svg{
     width:10%;
     fill: rgb(119, 173, 193);
+}
+
+.curtain{
+    display:none;
+}
+
+.curtain.active{
+    width:100vw;
+    height:100vh;
+    background-color: #289292;
+    z-index: 1001;
 }
