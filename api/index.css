@@ -96,7 +96,7 @@ header{
 }
 
 .hamburger.active{
-    z-index:1000;
+    z-index:1001;
 }
 
 .main{
@@ -794,12 +794,20 @@ button{
 }
 
 .curtain{
-    display:none;
+    width:100vw;
+    height:0;
+    position:absolute;
+    top:0%;
 }
 
 .curtain.active{
-    width:100vw;
+    width:100.4vw;
     height:100vh;
     background-color: #289292;
-    z-index: 1001;
+    z-index: 1000;
+    position:absolute;
+    top:-1.5%;
+    left:-1%;
+    display:block;
+    transition:0.7s;
 }
